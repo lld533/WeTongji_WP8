@@ -1,0 +1,113 @@
+﻿<Grid
+    x:Class="WeTongji.WTToast"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:System="clr-namespace:System;assembly=mscorlib"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <Grid.Resources>
+        <Storyboard x:Key="OpenToast" Completed="OpenToastCompleted">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Popup.IsOpen)" Storyboard.TargetName="popup">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <System:Boolean>True</System:Boolean>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.6">
+                    <DiscreteObjectKeyFrame.Value>
+                        <System:Boolean>True</System:Boolean>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0.95">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="60">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="CloseToast">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Popup.IsOpen)" Storyboard.TargetName="popup">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <System:Boolean>True</System:Boolean>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.6">
+                    <DiscreteObjectKeyFrame.Value>
+                        <System:Boolean>False</System:Boolean>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.95"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="60"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="FlyoutToast" Completed="FlyoutToastCompleted">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="480">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <SineEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="TapOnLeft">
+            <DoubleAnimation Duration="0" To="2" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationZ)" Storyboard.TargetName="TextBlock_Core"/>
+        </Storyboard>
+
+        <Storyboard x:Key="TapOnRight">
+            <DoubleAnimation Duration="0" To="-2" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationZ)" Storyboard.TargetName="TextBlock_Core"/>
+        </Storyboard>
+
+        <Storyboard x:Key="ResetTextblockProjection">
+            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationZ)" Storyboard.TargetName="TextBlock_Core"/>
+        </Storyboard>
+    </Grid.Resources>
+
+    <Popup x:Name="popup">
+        <!--IsHitTestVisible is set after the resource storyboards are completed-->
+        <Grid x:Name="grid" Height="60" Background="#FF40A4E3" Opacity="0.95" RenderTransformOrigin="0.5,0.5"
+              IsHitTestVisible="False"
+              VerticalAlignment="Top" Margin="0,32,0,0"
+              MouseLeftButtonDown="Toast_MouseLeftButtonDown"
+              MouseLeftButtonUp="Toast_MouseLeftButtonUp"
+              MouseLeave="Toast_MouseLeave"
+              ManipulationCompleted="Toast_ManipulationCompleted">
+            <Grid.RenderTransform>
+                <CompositeTransform x:Name="transform"/>
+            </Grid.RenderTransform>
+
+            <TextBlock x:Name="TextBlock_Core" TextTrimming="WordEllipsis" Margin="26,-3,26,0" FontSize="22" VerticalAlignment="Center" Foreground="White">
+                <TextBlock.Projection>
+                    <PlaneProjection CenterOfRotationX="0.5"/>
+                </TextBlock.Projection>
+            </TextBlock>
+        </Grid>
+    </Popup>
+
+</Grid>

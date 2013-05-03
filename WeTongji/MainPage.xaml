@@ -1,0 +1,984 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:controlsPrimitives="clr-namespace:Microsoft.Phone.Controls.Primitives;assembly=Microsoft.Phone.Controls"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:WeTongji"
+    xmlns:Converter="clr-namespace:WeTongji.Converter"
+    xmlns:System="clr-namespace:System;assembly=mscorlib" 
+    x:Class="WeTongji.MainPage"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+
+    <phone:PhoneApplicationPage.Resources>
+        <Converter:TextLengthToVisibilityConverter x:Key="TextLengthToVisibilityConverter"/>
+        <Converter:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <Converter:TurnOverVisibilityConverter x:Key="TurnOverVisibilityConverter"/>
+        <Converter:FavoriteNumberToVisibilityConverter x:Key="FavoriteNumberToVisibilityConverter"/>
+
+        <DataTemplate x:Key="WT_PanoramaHeadTemplate">
+            <Grid Margin="28,110,0,0">
+                <Path Data="M26.926,37.8576 C26.8298,37.8582 26.8298,37.8747 26.8175,38.1203 C26.8175,38.1203 26.7076,99.8824 26.7076,99.8824 C27.459,112.345 35.0329,119.021 44.844,121.199 C48.1613,121.935 52.3797,121.753 56.9394,121.159 C66.3236,118.602 68.3459,114.335 71.316,109.865 C73.9332,114.721 78.3866,119.037 84.7345,120.566 C88.2309,121.833 94.8055,121.954 98.6099,120.857 C101.918,119.622 113.06,115.864 115.379,103.115 C115.821,100.687 116.105,58.9295 115.806,38.0777 C115.789,37.9249 115.809,37.9195 115.642,37.8838 L107.557,37.8619 C107.451,37.8757 107.493,37.7882 107.458,38.0299 C107.299,41.2887 107.027,74.6745 106.532,98.7216 C105.65,107.445 100.599,110.121 96.0549,112.171 C91.4142,113.315 88.3123,112.894 86.3481,112.292 C80.1866,110.006 76.471,105.609 75.7853,99.3881 C75.302,93.5325 75.2297,58.4673 75.2502,38.007 C75.2525,37.8757 75.2055,37.9413 75.0941,37.9249 L67.4312,37.9477 C67.2546,37.9413 67.1607,37.9086 67.1614,38.091 C66.9879,58.5287 67.1165,97.2527 66.4068,99.878 C64.1153,108.474 58.7624,111.13 56.93,111.863 C54.526,112.824 49.3437,112.96 45.9145,112.09 C41.5468,110.499 37.9146,108.606 36.0357,100.993 C35.2425,97.3175 35.0542,58.2239 34.7894,38.0381 C34.7672,37.8582 34.7985,37.8254 34.5701,37.8001 z" HorizontalAlignment="Left" Height="84.877" Stretch="Fill" Stroke="White" UseLayoutRounding="False" VerticalAlignment="Top" Width="94.043" StrokeThickness="5" Fill="White"/>
+                <Path Data="M179.236,93.75 L187.919,94.7978 C187.966,99.4791 186.37,103.856 183.792,107.124 C181.452,110.78 178.107,113.793 173.792,116.187 C171.846,117.555 169.437,118.385 166.958,119.124 C165.749,119.624 162.694,120.035 159.66,120.094 C156.503,120.156 155.211,120.083 152.607,119.521 C149.877,118.886 145.526,117.177 142.48,114.75 C137.515,110.705 133.956,106.833 132.374,101.167 C131.415,97.1662 131.474,94.1294 131.75,89.7497 C132.001,86.442 132.73,83.1763 134,79.9583 C135.181,77.0465 136.756,74.4485 138.833,72.2502 C141.773,69.1351 145.157,66.7254 149.07,65.1583 C153.208,63.5004 157.93,62.917 162.655,63.3344 C166.599,63.6962 170.312,64.7734 173.667,66.9591 C176.763,68.6594 179.537,70.974 181.833,74.2088 C183.21,76.0788 184.417,77.9772 185.375,79.917 C173.014,86.8567 150.333,99.8946 150.042,99.8946 C149.646,99.8321 147.333,96.2832 145.25,93.0205 L173.083,77.4167 C172.812,76.4376 169.791,73.0004 165.916,71.9587 C164.175,71.2504 160.554,70.8867 156.792,71.3336 C153.962,71.7678 151.4,72.9261 149.083,74.6669 C146.88,76.2444 145.296,78.09 143.833,80.5419 C142.639,82.6273 141.871,85.3201 141.42,88.9167 C141.178,91.0563 141.205,93.1366 141.461,95.1665 C141.701,97.889 142.859,100.822 145.086,103.999 C147.571,106.997 149.75,108.812 153.75,110.288 C158.139,111.386 162.528,111.72 166.917,110.582 C171.343,109.011 174.187,105.916 175.666,103.187 C176.309,102.124 178.444,97.3541 179.236,93.75 z" Fill="White" HorizontalAlignment="Left" Height="61.909" Margin="102.821,23.401,-0.159,0" Stretch="Fill" Stroke="White" StrokeThickness="5" UseLayoutRounding="False" VerticalAlignment="Top" Width="61.338"/>
+                <Path Data="M174.567,26.1746 L174.567,34.2567 L187.709,34.4299 L187.548,81.8254 L196.258,81.9412 L196.48,34.4299 L209.85,34.4299 L209.85,26.2326 z" Fill="White" HorizontalAlignment="Left" Height="60.374" Margin="172.313,23.875,0,0" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="39.749" StrokeThickness="0"/>
+                <Path Data="M262.603,155.668 C253.293,155.917 245.438,163.583 245.5,174 C245.441,182.176 252.627,190.839 263.124,191.035 C274.436,190.339 280.694,183.427 280.625,172.438 C280.436,162.371 272.04,155.667 262.603,155.668 z" HorizontalAlignment="Left" Height="44.381" Margin="212.874,41.493,0,0" Stretch="Fill" Stroke="White" StrokeThickness="9" UseLayoutRounding="False" VerticalAlignment="Top" Width="44.131"/>
+                <Path Data="M265.954,80.6522 C266.009,68.7389 266.155,56.9669 266.355,56.272 C267.869,51.6431 270.649,48.2684 274.717,46.0292 C277.754,44.6049 283.829,45.0511 285.782,45.8573 C289.669,47.2976 293.407,50.0265 295.173,54.4189 C295.608,55.4999 295.392,67.5513 295.495,80.8754 L287.685,80.7723 C287.525,69.4903 287.387,59.0515 286.936,57.1299 C286.384,54.9905 285.178,53.9834 282.945,52.892 C281.626,52.4116 278.985,52.4502 278.005,52.9435 C275.828,54.1352 274.883,55.1982 274.031,57.4216 C273.681,58.5712 273.529,69.2632 273.431,80.7725 z" HorizontalAlignment="Left" Height="43.436" Margin="262.249,41.251,0,0" Stretch="Fill" StrokeThickness="0" UseLayoutRounding="False" VerticalAlignment="Top" Width="36.876" Fill="White"/>
+                <Path Data="M337.125,82.5836 C337.581,88.266 336.02,91.8412 329.625,95 C323.954,96.4722 317.407,96.2745 311.428,94.0001 L309.336,101.658 C312.428,103.369 315.842,103.669 319.25,103.875 C323.091,104.127 327.611,104.026 331.437,103.438 C341.209,99.9556 346.196,94.1913 346.687,84.7503 C351.567,84.8785 356.507,84.8456 361.562,84.5003 C369.313,84.3391 373.974,77.0922 374.625,66.8752 L374.375,24.25 L365.628,24.2516 C365.934,46.7736 365.77,67.1092 365.125,68.25 C364.199,72.4592 361.467,74.9353 356.875,75.6252 L347,75.75 C347.177,69.6673 347.664,60.6656 346.812,57.6234 C344.189,50.0047 339.176,45.1236 331.125,42.75 C327.315,41.6411 323.715,41.7916 320.25,42.75 C314.394,44.3067 309.923,46.9004 307.182,50.7712 C304.962,54.1501 304.046,55.4264 303.315,58.4296 C302.773,60.8118 302.427,64.6602 302.871,67.3539 C303.948,73.1768 305.941,77.5941 308.893,80.582 C311.483,83.3767 314.953,84.6907 318.274,85.329 C322.856,85.9088 326.909,86.373 331.437,85.3961 C334.153,84.7579 335.391,84.2503 337.13,82.5836 L337.655,71.6892 C335.737,75.3295 333.12,75.6606 329.854,76.5836 C326.7,77.0007 323.686,76.9867 320.875,76.3544 C316.471,75.1023 313.645,72.4274 312.625,68.125 C311.656,64.6961 311.725,61.3203 312.875,58 C315.228,54.493 317.992,52.0248 321.104,51.0001 C323.705,50.5332 325.86,50.1594 329,51 C332.404,52.1553 333.312,53.0628 334.818,55.2224 C336.572,57.9018 337.565,61.9737 337.67,66.0878 C337.734,68.8094 337.797,70.3917 337.417,72.1008 z" HorizontalAlignment="Left" Height="79.755" Margin="302.675,24.249,0,0" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="71.95" Fill="White" Stroke="White"/>
+                <Border HorizontalAlignment="Left" Height="42" Margin="385,24,0,0" VerticalAlignment="Top" Width="9" Background="White"/>
+                <Ellipse Fill="White" HorizontalAlignment="Left" Height="11" Margin="383,74,0,0" Stroke="White" VerticalAlignment="Top" Width="12"/>
+                <Path Data="M421.348,38.2575 C421.952,36.3542 422.194,35.145 422.025,33.1641 C421.687,30.4476 419.357,28.9502 417.967,28.9761 C415.976,29.0131 414.303,29.5984 413.188,31.3124 C412.556,32.7487 412.669,34.3525 413.064,35.5003 C413.533,36.4462 413.965,36.843 415.712,37.8612 C417.028,38.5595 419.499,38.7352 421.348,38.2575 z" Fill="#FF50C1E2" HorizontalAlignment="Left" Height="10.547" Margin="412.205,28.5,0,0" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="10.353"/>
+                <Path Data="M414.937,40.9367 C414.453,41.1437 412.875,50.4373 408.375,56.3746 C408.223,57.3118 408.364,57.9896 408.625,58.5622 L413.438,58.4996 L413.625,83.6872 C415.61,84.0373 417.484,84.0111 419.247,83.5195 L419.125,52.4371 C420.92,47.5789 422.613,43.1086 422,42.0617 C422.088,41.5019 421.649,41.1525 420.875,40.9372 z" Fill="#FF50C1E2" HorizontalAlignment="Left" Height="42.984" Margin="408.312,40.937,0,0" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="13.816"/>
+                <Path Data="M426.373,28.8333 L429.584,28.8332 C430.212,29.0347 430.602,29.3783 430.668,29.9157 L430.665,38.3201 C430.594,39.2 430.839,39.6408 431.333,39.7351 L433.503,39.7351 L433.378,26.0042 C433.419,25.2795 433.786,24.9427 434.417,24.9223 L437.749,24.9226 C438.409,24.9445 438.728,25.3056 438.791,25.9212 L438.749,40.0679 L441.249,39.9847 C441.877,39.9418 442.187,39.5024 442.166,38.6532 L442.083,30.1237 C442.086,29.5479 442.326,29.1653 442.834,29.0002 L446.377,29.0002 C447.026,29.1022 447.259,29.4826 447.167,30.082 L447.25,42.2316 C447.5,44.4784 445.815,45.6794 444.252,45.893 L429.167,45.8934 C427.474,45.6474 426.216,44.4978 425.333,42.5644 L425.083,29.9988 C425.301,29.4106 425.708,28.9995 426.373,28.8333 z" Fill="#FF50C1E2" HorizontalAlignment="Left" Height="21.001" Margin="425.083,24.916,0,0" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="22.192"/>
+                <Path Data="M425.875,49.75 L425.938,54.5 C426.125,54.9381 426.562,55.2089 427.25,55.3125 L445.281,55.3125 C445.781,55.2446 446.157,55.0105 446.375,54.5628 L446.281,49.9686 C446.184,49.5021 445.871,49.173 445.313,49 L426.938,48.875 C426.46,48.9697 426.101,49.2536 425.875,49.75 z" Fill="#FF50C1E2" HorizontalAlignment="Left" Height="6.437" Margin="425.875,48.875,0,0" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="20.499"/>
+                <Path Data="M432.208,64.125 C432.188,71.4522 432.07,76.1772 431.813,77.1879 C431.256,79.9371 430.779,82.3961 429.729,84.2292 C427.836,84.3717 425.947,84.3659 424.062,84.1455 C423.542,84.063 423.563,81.7505 423.729,81.0208 C424.488,79.1676 425.122,77.2809 425.604,75.3542 C426.843,70.7342 426.875,65.6875 426.875,60.4167 C426.875,59.1249 427.375,57.8332 429.354,57.8122 L442.958,57.9582 C444.875,58.0415 444.833,58.9582 445,60.5831 C444.878,69.7634 444.5,76.3128 445.188,76.8126 C445.391,77.0941 446.771,77.2765 447.562,76.8126 C449.795,75.8796 451.684,73.821 453.417,71.2499 C451.135,66.4306 449.73,58.9533 449.167,48.9163 L455,49.0826 C454.794,53.9998 455.173,58.9972 456.5,64.125 C459.764,59.3631 460.861,50.8008 460.989,40.9263 L456.861,40.9058 C456.485,40.9002 456.275,41.1589 456.213,41.5359 L455.369,46.4608 C455.287,46.7684 455.086,46.9908 454.719,47.0933 L449.312,47.0619 C448.381,47.0201 448.039,46.5892 448.188,45.8119 L452.634,27.6381 C452.766,27.3241 452.948,27.1816 453.166,27.166 L458.726,27.166 C458.922,27.2177 459.022,27.3464 459.016,27.5597 L458.25,34.0825 L469.25,34.145 L469.188,40.9991 L466.271,41.0098 C466.019,54.9906 464.03,65.9064 459.167,71.9998 C460.529,73.9392 462.797,76.4847 463.828,76.7816 C465.188,77.0316 466.416,77.048 467.583,77.1666 C468.688,77.2972 469.109,78.2347 469.167,78.6666 C469.25,79.7192 469.11,81.6747 468.625,82.7502 C467.906,83.813 466.078,84.2037 464.812,84.0002 C462.058,83.3175 459.194,81.3322 456.167,77.4163 C453.982,80.3329 450.797,82.9068 447.891,83.9849 C447.281,84.2037 444.354,84.188 443.417,83.8955 C440.938,83.0422 440.87,82.3586 440.021,80.6879 C439.542,79.3969 439.959,72.3335 440,64.1661 z" Fill="#FF50C1E2" HorizontalAlignment="Left" Height="57.158" Margin="423.624,27.167,-17.25,0" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="45.626"/>
+                <Path Data="M505.812,193.25 L505.75,143 L546.812,142.999 C548.815,143.031 552.19,145.592 552.253,147.311 C552.378,161.54 552.534,187.874 552.065,189.187 C550.905,191.602 548.065,194.124 546.94,194.249 C541.827,194.41 537.739,194.453 537.377,194.062 C537.065,193.702 536.035,189.844 536.064,187.624 C536.064,187.343 543.419,187.687 544.003,187.562 C544.45,187.325 544.676,186.906 544.69,186.312 L544.876,151.312 C544.691,150.452 544.158,149.99 543.376,149.812 L513.188,150 L513.125,193.375 z" Fill="#FF50C1E2" HorizontalAlignment="Left" Height="51.366" Margin="477.75,32.959,-72.379,0" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="46.629"/>
+                <Path Data="M516.459,159.882 C516.639,160.266 517.167,160.674 517.812,160.695 L538.938,160.695 C539.474,160.63 539.874,160.363 540.125,159.875 L540.125,155.375 C540.19,154.591 539.726,154.188 538.688,154.195 L518.375,154.195 C517.206,154.175 516.572,154.577 516.449,155.382 z" Fill="#FF50C1E2" HorizontalAlignment="Left" Height="6.501" Margin="488.699,44.312,-60.381,0" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="23.682"/>
+                <Path Data="M516.84,165.246 L522.21,169.688 L535.043,169.688 L535.062,177.563 C535.092,178.418 534.353,178.813 533.374,178.864 L524.187,178.876 C522.967,178.857 521.794,177.935 521.711,177.251 L521.691,169.706 L517.491,164.675 L536.481,164.523 C540.024,164.696 540.785,167.528 540.947,169.313 L540.981,178.64 C540.919,180.789 539.264,184.17 537.061,184.168 L520.5,184.126 C518.926,184.038 516.84,181.843 516.688,180.501 z" Fill="#FF50C1E2" HorizontalAlignment="Left" Height="19.642" Margin="488.699,54.688,-60.987,0" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="24.288" Stroke="#FF50C1E2"/>
+                <Path Data="M567.689,153.444 C567.947,151.453 568.254,149.681 568.031,147.614 C567.708,146.415 567.043,145.407 566.492,144.841 C565.713,144.18 563.713,143.765 562.558,144.105 C561.409,144.557 560.4,145.012 559.58,146 C558.888,147 558.725,148.142 558.796,149.142 C559.024,151.076 559.945,151.802 560.501,152.206 C560.829,152.444 563.756,153.556 567.689,153.444 z" Fill="#FF50C1E2" HorizontalAlignment="Left" Height="10.455" Margin="530.629,33.876,-88.855,0" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="10.226" StrokeThickness="0"/>
+                <Path Data="M566.723,152.468 C566.981,150.477 567.2,149.94 567.1,147.718 C567.1,147.406 566.739,146.133 566.188,145.567 C565.409,144.906 564.221,144.718 563.053,144.774 C561.699,144.944 561.079,145.371 560.259,146.359 C559.567,147.359 559.575,148.454 559.689,149.133 C560.288,150.959 560.773,151.128 561.456,151.68 C561.771,151.934 562.79,152.58 566.723,152.468 z" Fill="#FF50C1E2" HorizontalAlignment="Left" Height="8.519" Margin="531.561,47.302,-87.777,0" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="8.216" StrokeThickness="0"/>
+                <Path Data="M556.011,190.898 C555.938,192.438 563.362,192.534 564.08,191.364 C566.548,187.623 568.105,180.812 568.955,171.614 C569.005,170.693 568.812,170 567.938,170 L563.188,170 C562.73,170.021 561.438,171.625 561.313,172.625 C559.954,181.888 558.176,187.897 556.011,190.898 z" Fill="#FF50C1E2" HorizontalAlignment="Left" Height="22.158" Margin="527.903,59.821,-88.855,0" Stretch="Fill" StrokeThickness="0" UseLayoutRounding="False" VerticalAlignment="Top" Width="12.952"/>
+                <Path Data="M584.812,140.062 L587.125,144.375 L573.688,144.334 C572.935,144.402 572.167,144.834 572.188,145.44 L572.25,149.752 L576.583,149.793 C579.639,155.922 582.562,159.606 585.375,161.254 C581.607,164.228 577.019,166.181 571.375,166.818 L571.5,172.193 C577.734,170.538 583.821,168.354 589.688,165.379 C596.543,168.984 602.856,171.296 608.5,171.942 L608.625,167.317 C603.473,166.572 598.798,164.683 594.688,161.441 C599.167,157.406 601.955,153.628 602.188,149.711 L607.688,149.689 L607.625,144.348 L593.812,144.332 L596.438,149.814 C594.92,153.22 592.581,155.952 589.562,158.128 C586.559,155.947 584.312,153.113 582.73,149.689 L595.792,149.835 L590.438,140.062 z" HorizontalAlignment="Left" Height="33.126" Margin="542.93,29.413,-129.18,0" Stretch="Fill" Stroke="#FF50C1E2" UseLayoutRounding="False" VerticalAlignment="Top" Width="38.25" Fill="#FF50C1E2"/>
+                <Path Data="M579.467,171.233 C579.967,180.433 576.964,188.804 572.432,191.84 C571.81,192.657 572.198,193.258 572.374,193.457 L579.893,193.457 C584.199,187.874 584.884,180.578 584.649,171.24 z" Fill="#FF50C1E2" HorizontalAlignment="Left" Height="23.185" Margin="543.847,60.736,-105.356,0" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="13.509" StrokeThickness="0"/>
+                <Border HorizontalAlignment="Left" Height="23" Margin="567,61,-120,0" VerticalAlignment="Top" Width="5" Background="#FF50C1E2"/>
+            </Grid>
+        </DataTemplate>
+
+        <Style x:Key="WT_PanoramaItemStyle" TargetType="controls:PanoramaItem">
+            <Setter Property="CacheMode" Value="BitmapCache"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="Margin" Value="0,0,-30,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="controls:PanoramaItem">
+                        <Grid Background="{TemplateBinding Background}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <ContentControl x:Name="header" ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" FontFamily="{StaticResource PhoneFontFamilySemiLight}" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Left" FontSize="48" Margin="18,7,0,0">
+                                <ContentControl.RenderTransform>
+                                    <TranslateTransform x:Name="headerTransform"/>
+                                </ContentControl.RenderTransform>
+                            </ContentControl>
+                            <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="1" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="18,37,60,0"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="CampusInfoButtonStyle" TargetType="Button">
+            <Setter Property="Height" Value="140"/>
+            <Setter Property="Margin" Value="0,0,0,20"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="Disabled"/>
+                                    <VisualState x:Name="MouseOver"/>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Focused"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+                            <Rectangle Fill="Gray"/>
+                            <Image Stretch="UniformToFill" Source="{Binding FirstImageBrush}"/>
+                            <Border Width="130" VerticalAlignment="Top" Opacity="0.5" Margin="0,12,12,0" Height="40" HorizontalAlignment="Right" Background="Black">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-1,0,0"/>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontSize" Value="24"/>
+        </Style>
+
+
+        <Style x:Key="ScrollViewerWithLoadButtonStyle" TargetType="ScrollViewer">
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollViewer">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="ScrollStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="00:00:00.5"/>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="Scrolling">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="VerticalScrollBar"/>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="HorizontalScrollBar"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="NotScrolling"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Grid Margin="{TemplateBinding Padding}">
+                                <ScrollContentPresenter x:Name="ScrollContentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}"/>
+                                <ScrollBar x:Name="VerticalScrollBar" HorizontalAlignment="Right" Height="Auto" IsHitTestVisible="False" IsTabStop="False" Maximum="{TemplateBinding ScrollableHeight}" Minimum="0" Opacity="0" Orientation="Vertical" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Value="{TemplateBinding VerticalOffset}" ViewportSize="{TemplateBinding ViewportHeight}" VerticalAlignment="Stretch" Width="5"/>
+                                <ScrollBar x:Name="HorizontalScrollBar" HorizontalAlignment="Stretch" Height="5" IsHitTestVisible="False" IsTabStop="False" Maximum="{TemplateBinding ScrollableWidth}" Minimum="0" Opacity="0" Orientation="Horizontal" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{TemplateBinding HorizontalOffset}" ViewportSize="{TemplateBinding ViewportWidth}" VerticalAlignment="Bottom" Width="Auto"/>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ActivityListBoxStyle" TargetType="ListBox">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{StaticResource PhoneForegroundBrush}"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBox">
+                        <ScrollViewer x:Name="ScrollViewer" Style="{StaticResource ScrollViewerWithLoadButtonStyle}">
+                            <ItemsPresenter/>
+                        </ScrollViewer>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Storyboard x:Key="AvatarAnimation" AutoReverse="True" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="AvatarStackPanel">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="-35"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:4" Value="-35"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="AlarmAnimation" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="AlarmLeftEar">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="-12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="-12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="-12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="AlarmLeftEar">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="-1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="-2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="-1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="AlarmLeftEar">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="-1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="-2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="-1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="AlarmRightEar">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="-12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="-12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="AlarmRightEar">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="AlarmRightEar">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="-1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="-2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="-1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="SetAlarmClockAnimation">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="HourPointer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="120"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="MinutePointer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="180"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="VisibleAlarmClockPointersAnimation">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="HourPointer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="MinutePointer">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="ResetAlarmClockPointersAnimation">
+            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="HourPointer"/>
+            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="MinutePointer"/>
+            <DoubleAnimation Duration="0" To="0"  Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="HourPointer"/>
+            <DoubleAnimation Duration="0" To="0"  Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="MinutePointer"/>
+        </Storyboard>
+
+        <Storyboard x:Key="AroundNewsImageAnimation" RepeatBehavior="Forever" AutoReverse="True">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Image_AroundNews">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:5" Value="-100">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseInOut" Exponent="5"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="TongjiNewsImageAnimation" RepeatBehavior="Forever" AutoReverse="True">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Image_TongjiNews">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:5" Value="-25">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseInOut" Exponent="5"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="ClubNewsImageAnimation" RepeatBehavior="Forever" AutoReverse="True">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Image_ClubNews">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:5" Value="-25">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseInOut" Exponent="5"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="OfficialNoteImageAnimation" RepeatBehavior="Forever" AutoReverse="True">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="Image_OfficialNote">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:5" Value="-100">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseInOut" Exponent="5"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="VisibleFavoriteNumber">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="TextBlock_FavoriteNumber">
+                <EasingDoubleKeyFrame KeyTime="0" Value="8"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="TurnUpFavoriteNumber">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="TextBlock_FavoriteNumber">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="180"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="TurnDownFavoriteNumber">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="TextBlock_FavoriteNumber">
+                <EasingDoubleKeyFrame KeyTime="0" Value="180"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="360"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="LoadingCalendarNodeAnimation" RepeatBehavior="Forever">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(TextBlock.Text)" Storyboard.TargetName="TextBlock_LoadingCalendarNodeEllipsis">
+                <DiscreteObjectKeyFrame KeyTime="0" Value=""/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1" Value="."/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:2" Value=".."/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:3" Value="..."/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:4" Value="..."/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="TriggerCalendar">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="CalendarBody">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="-180">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="-360"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="FakePage">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="180">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="FakePage">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="TextBlock_Yesterday">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="180">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="TextBlock_Yesterday">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="StressCurrentDayAnimation">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="CalendarBody">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="32">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="TextBlock_Today">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="32">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+    </phone:PhoneApplicationPage.Resources>
+
+    <Grid>
+
+        <controls:Panorama x:Name="Panorama_Core"  
+                           SelectionChanged="Panorama_SelectionChanged" 
+                           TitleTemplate="{StaticResource WT_PanoramaHeadTemplate}" Margin="-12,0,0,0">
+
+            <!--
+动态   
+                -->
+				                        
+			<controls:PanoramaItem Header="{Binding Path=LocalizedResources.MainPage_Feed, Source={StaticResource LocalizedStrings}}" 
+                                   Foreground="{StaticResource UserThemeBrush}" 
+								   Style="{StaticResource WT_PanoramaItemStyle}"
+								   Margin="12,0,-42,0">
+				<Grid>
+					<Grid x:Name="Grid_AutoLoginPrompt"> 
+							<StackPanel>    
+								<TextBlock Text="{Binding Path=LocalizedResources.MainPage_AutoLoginPrompt, Source={StaticResource LocalizedStrings}}"
+										   FontSize="24"
+										   Foreground="#FF999999" Margin="0,-6,0,0"/>
+								<Button HorizontalAlignment="Left" MinWidth="140" Margin="-10,20,0,0"
+										Content="{Binding Path=LocalizedResources.MainPage_CancelAutoLogin, Source={StaticResource LocalizedStrings}}"
+										Click="Button_CancelAutoLogin_Click"/>
+							</StackPanel>
+					</Grid>
+					<Grid Visibility="{Binding Visibility, ElementName=Grid_AutoLoginPrompt, Converter={StaticResource TurnOverVisibilityConverter}}">
+						<!--Signed Out-->
+						<Border x:Name="Border_SignedOut" >
+								<ScrollViewer x:Name="ScrollViewer_SignOutRoot"  VerticalScrollBarVisibility="Disabled">
+									<StackPanel>
+										<TextBlock Text="{Binding Path=LocalizedResources.MainPage_StudentNO, Source={StaticResource LocalizedStrings}}" 
+												   Foreground="White" Opacity="0.75" FontSize="20" Margin="0,-6,0,0"/>
+										<Grid Margin="0,7,0,0" Width="320" HorizontalAlignment="Left"  Height="48">
+											<TextBox x:Name="TextBox_Id"  BorderThickness="0" Style="{StaticResource BasicTextBoxStyle}" InputScope="Number" 
+												 TextChanged="UpdateLoginButton"
+												 GotFocus="SignInControl_GotFocus"
+												 LostFocus="SignInControl_LostFocus"/>
+											<TextBlock Margin="10,0,0,0" VerticalAlignment="Center" Foreground="#FF666666" FontSize="25"  IsHitTestVisible="False" 
+													   Text="{Binding Path=LocalizedResources.MainPage_EnterStudentNOPrompt, Source={StaticResource LocalizedStrings}}"
+													   Visibility="{Binding Text,ElementName=TextBox_Id, Converter={StaticResource TextLengthToVisibilityConverter}}"/>
+										</Grid>
+
+										<TextBlock Margin="0,30,0,0" Foreground="White" Opacity="0.75" FontSize="20"
+												   Text="{Binding Path=LocalizedResources.MainPage_Password, Source={StaticResource LocalizedStrings}}"/>
+										<Grid Margin="0,7,0,0" HorizontalAlignment="Left" Width="320"  Height="48">
+											<PasswordBox x:Name="PasswordBox_Password"  BorderThickness="0" Style="{StaticResource BasicPasswordBoxStyle}" 
+													 PasswordChanged="PasswordBox_Password_PasswordChanged" 
+													 GotFocus="SignInControl_GotFocus"
+													 LostFocus="SignInControl_LostFocus"/>
+											<TextBlock Margin="10,0,0,0" VerticalAlignment="Center" Foreground="#FF666666" FontSize="25" IsHitTestVisible="False"
+													   Visibility="{Binding Password,ElementName=PasswordBox_Password, Converter={StaticResource TextLengthToVisibilityConverter}}"
+													   Text="{Binding Path=LocalizedResources.MainPage_EnterPasswordPrompt, Source={StaticResource LocalizedStrings}}"/>
+										</Grid>
+
+										<Button BorderThickness="0" HorizontalAlignment="Left"  Style="{StaticResource HyperLinkButtonStyle}" Margin="0,29,0,300" Padding="0" FontSize="20"
+												Click="NavToForgotPassword">
+											<TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" TextDecorations="Underline"
+													   Text="{Binding Path=LocalizedResources.MainPage_ForgotPasswordLink, Source={StaticResource LocalizedStrings}}"/>
+										</Button>
+									</StackPanel>
+								</ScrollViewer>
+
+						</Border>
+						<!--Signed in-->
+						<Border x:Name="Border_SignedIn" Visibility="{Binding Visibility, ElementName=Border_SignedOut, Converter={StaticResource TurnOverVisibilityConverter}}"
+								VerticalAlignment="Top">
+								<ScrollViewer VerticalScrollBarVisibility="Hidden">
+									<StackPanel>
+
+										<Border Width="141" Height="40" Margin="0,-40,0,0" Background="{StaticResource PhoneBackgroundBrush}"
+												HorizontalAlignment="Left"  Canvas.ZIndex="1"/>
+
+										<StackPanel Orientation="Horizontal">
+
+											<!---Avatar-->
+											<Button x:Name="Button_PersonalProfile"  Style="{StaticResource NoBorderButtonStyle}" Click="ViewPersonalProfile">
+												<StackPanel x:Name="AvatarStackPanel" Margin="0" RenderTransformOrigin="0.5,0.5">
+													<StackPanel.RenderTransform>
+														<CompositeTransform/>
+													</StackPanel.RenderTransform>
+
+													<Border Background="#FF1BA1E2"
+															Width="141" Height="35">
+														<!--Name-->
+														<TextBlock Text="{Binding DisplayName}" FontSize="22" TextTrimming="WordEllipsis" Margin="20,-2,20,0"
+																   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+													</Border>
+
+													<!--Avatar-->
+													<Grid Width="141" Height="141">
+														<Image Stretch="UniformToFill" Source="/Images/default_avatar_profile.png"/>
+														<Image Stretch="UniformToFill" Source="{Binding AvatarImageBrush}"/>
+													</Grid>
+												</StackPanel>
+											</Button>
+
+											<!--Favorites-->
+											<Button x:Name="Button_Favorite"  Style="{StaticResource NoBorderButtonStyle}"
+													Click="ViewMyFavorite" Margin="20,0,0,0" VerticalAlignment="Top">
+												<Grid Background="#FF1BA1E2" Width="141" Height="141">
+													<Path Data="M212.639,224.182 L224.098,224.242 C226.319,215.861 227.352,211.172 228.629,211.272 C230.03,211.097 231.518,219.729 232.94,224.504 L244.147,224.498 C245.472,224.603 248.41,224.411 248.328,224.888 C248.634,225.414 239.325,232.459 235.178,234.927 C236.931,238.269 238.299,241.627 239.332,245 C239.561,246.446 240.298,249.931 239.906,250.176 C239.431,250.356 235.886,247.677 235.063,246.726 L228.448,240.366 C225.642,243.309 224.764,244.625 221.669,247.268 C220.718,248.102 217.094,250.471 216.897,250.356 C216.815,250.307 217.389,246.313 217.641,245.164 C218.794,240.915 219.502,238.427 221.624,235.087 C217.896,232.697 214.278,229.997 210.85,226.761 C209.849,225.874 208.629,224.805 208.766,224.395 C209.209,224.001 212.131,224.182 212.639,224.182 z" 
+														  Fill="White" HorizontalAlignment="Left" Height="40.173" Margin="33,-19,0,0" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Center" Width="40.673" StrokeThickness="3" Stroke="White"/>
+
+													<!--Count of Favorites-->
+													<Grid Width="50" Height="50" Margin="0,-26,-70,0">
+														<TextBlock x:Name="TextBlock_FavoriteNumber" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding DisplayFavoritesCount}" TextAlignment="Right" RenderTransformOrigin="0.5,0.5" FontSize="40"
+															   Visibility="{Binding DisplayFavoritesCount, Converter={StaticResource FavoriteNumberToVisibilityConverter}}">
+															<TextBlock.RenderTransform>
+																<CompositeTransform/>
+															</TextBlock.RenderTransform>
+															<TextBlock.Projection>
+																<PlaneProjection/>
+															</TextBlock.Projection>
+														</TextBlock>
+													</Grid>
+
+													<TextBlock HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="11,0,0,8" FontSize="20"
+															   Text="{Binding Path=LocalizedResources.MainPage_MyFavorite, Source={StaticResource LocalizedStrings}}" />
+												</Grid>
+											</Button>
+										</StackPanel>
+										<Border BorderBrush="Black" Height="35" Margin="0,-35,0,0" VerticalAlignment="Top" Background="{StaticResource PhoneBackgroundBrush}"/>
+
+										<!--Alarm-->
+										<Button x:Name="Button_Alarm" Style="{StaticResource NoBorderButtonStyle}" HorizontalAlignment="Left" 
+												Click="ViewAlarmItem" Margin="0,-22,0,0">
+											<Grid Background="#FF1BA1E2" Width="302" Height="141">
+												<!--Icon-->
+												<Grid Width="60" Height="67" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,14,0,0">
+													<Ellipse x:Name="AlarmBody" Height="35" Stroke="White" StrokeThickness="4" Width="35"/>
+													<Path x:Name="AlarmRightEar" Data="M68.312,349.25 C73.9379,351.313 79.1882,354.938 81.7498,361.312 C84.8121,361.062 86.2507,351.688 81.313,348.064 C78.3756,345.314 71.34,345.34 68.312,349.25 z" Height="16.176" Stretch="Fill" Stroke="White" UseLayoutRounding="False" Width="17.23" Fill="White" Margin="28,-31,0,0"  RenderTransformOrigin="0.5,0.5">
+														<Path.RenderTransform>
+															<CompositeTransform/>
+														</Path.RenderTransform>
+													</Path>
+													<Path x:Name="VerticalLine" Data="M62.345,352.576 L62.3541,344.93" Fill="White" Stretch="Fill" Stroke="White" UseLayoutRounding="False" Opacity="0.995" Margin="29.344,5.531,28.562,46.417" StrokeThickness="2"/>
+													<Ellipse x:Name="AlarmRing" Fill="White" Height="5" Stroke="White" Width="5" Margin="28,2,27,53"/>
+													<Path x:Name="AlarmLeftEar" Data="M42.956,358.275 C47.5894,353.212 50.5528,351.333 56.8763,349.865 C55.672,348.597 54.4516,348.184 52.5292,347.624 C50.4293,347.355 48.3295,347.292 46.4367,347.707 C44.8248,347.925 42.163,349.264 41.0441,350.612 C40.8617,350.83 40.0188,351.691 40.0188,354.243 C40.1075,356.629 42.2069,358.095 42.956,358.275 z" Stretch="Fill" Stroke="White" UseLayoutRounding="False" StrokeThickness="0" Fill="White" Margin="8,9.738,34.188,40.896" RenderTransformOrigin="0.5,0.5">
+														<Path.RenderTransform>
+															<CompositeTransform/>
+														</Path.RenderTransform>
+													</Path>
+													<Path x:Name="AlarmLeftFoot" Data="M48.625,380.042 L44.125,387.25 L47.75,389.333 L51.5833,383 z" Height="9.291" Stretch="Fill" StrokeThickness="0" UseLayoutRounding="False" Width="7.458" Fill="White" Margin="-28,31,0,0"/>
+													<Path x:Name="AlarmRightFoot" Data="M73.4167,382.833 L77.4164,389.208 L80.2492,387.583 L76.3328,380.083 z" Fill="White" Height="9.125" Stretch="Fill" StrokeThickness="0" UseLayoutRounding="False" Width="6.833" Margin="0,31,-30,0"/>
+													<Path x:Name="HourPointer" Data="M61.013,366.952 L61.013,371.098" StrokeStartLineCap="Round" Stretch="Fill" StrokeEndLineCap="Round" Stroke="White" StrokeThickness="3" UseLayoutRounding="False" Margin="28.989,27.839,27.969,32.015" RenderTransformOrigin="0.5,0.8"
+														  Opacity="0">
+														<Path.RenderTransform>
+															<CompositeTransform/>
+														</Path.RenderTransform>
+													</Path>
+													<Path x:Name="MinutePointer" Data="M61.5595,364.479 L61.5595,371.063" Height="9.584" StrokeStartLineCap="Round" Stretch="Fill" StrokeEndLineCap="Round" Stroke="White" StrokeThickness="3" UseLayoutRounding="False" Width="3.021" Margin="28.989,25.632,27.989,31.783" RenderTransformOrigin="0.5,0.85"
+														  Opacity="0">
+														<Path.RenderTransform>
+															<CompositeTransform/>
+														</Path.RenderTransform>
+													</Path>
+													<Ellipse HorizontalAlignment="Center" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Stroke="White" StrokeThickness="3" VerticalAlignment="Center" Width="2" Height="2" Margin="-1,-2,0,0"/>
+												</Grid>
+												<TextBlock HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,5" FontSize="20"
+														   Text="{Binding Path=LocalizedResources.MainPage_Alarms, Source={StaticResource LocalizedStrings}}"/>
+
+												<!--Core Item-->
+												<Grid x:Name="Grid_LoadingCalendarNode"  HorizontalAlignment="Right" Margin="0,11,17,0">
+													<Grid.ColumnDefinitions>
+														<ColumnDefinition/>
+														<ColumnDefinition Width="18"/>
+													</Grid.ColumnDefinitions>
+
+													<TextBlock Grid.Column="0" FontSize="28"
+															   Text="{Binding Path=LocalizedResources.MainPage_LoadingAlarms, Source={StaticResource LocalizedStrings}}"/>
+													<TextBlock x:Name="TextBlock_LoadingCalendarNodeEllipsis" Grid.Column="1" Text="..."  FontSize="28" Margin="0,4,0,0"/>
+												</Grid>
+
+												<Grid Visibility="{Binding Visibility, ElementName=Grid_LoadingCalendarNode, Converter={StaticResource TurnOverVisibilityConverter}}">
+													<Grid VerticalAlignment="Top" Margin="0,20,17,0"
+														  Visibility="{Binding Visibility, ElementName=TextBlock_NoArrangement, Converter={StaticResource TurnOverVisibilityConverter}}">
+														<Grid.RowDefinitions>
+															<RowDefinition Height="Auto"/>
+															<RowDefinition Height="Auto"/>
+														</Grid.RowDefinitions>
+														<Grid.ColumnDefinitions>
+															<ColumnDefinition Width="0.382*"/>
+															<ColumnDefinition Width="0.618*"/>
+														</Grid.ColumnDefinitions>
+
+														<!--Time-->
+														<TextBlock Grid.Column="1" Text="{Binding DisplayBeginTime}" FontSize="32" Margin="0,-12,-2,0" HorizontalAlignment="Right"/>
+														<!--Title-->
+														<TextBlock Grid.Column="1" Grid.Row="1" FontSize="28" Margin="0,-4,0,0" HorizontalAlignment="Right"
+															TextWrapping="Wrap" TextTrimming="WordEllipsis" MaxHeight="100" TextAlignment="Right"
+															Text="{Binding Title}"/>
+													</Grid>
+
+													<!--No Arrangement case-->
+													<TextBlock x:Name="TextBlock_NoArrangement" Margin="0,12,17,0" FontSize="28" FlowDirection="RightToLeft" Visibility="Visible"
+															   HorizontalAlignment="Right" VerticalAlignment="Top">
+														<Run Text="{Binding Path=LocalizedResources.MainPage_NoArrangementTodayFirstLine, Source={StaticResource LocalizedStrings}}"/>
+														<LineBreak/>
+														<Run Text="{Binding Path=LocalizedResources.MainPage_NoArrangementTodaySecondLine, Source={StaticResource LocalizedStrings}}"/>
+													</TextBlock>
+												</Grid>
+											</Grid>
+										</Button>
+
+										<!--Agendar-->
+										<Grid Margin="0,13,0,0">
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width="141"/>
+												<ColumnDefinition Width="20"/>
+												<ColumnDefinition Width="141"/>
+											</Grid.ColumnDefinitions>
+
+											<Button Style="{StaticResource NoBorderButtonStyle}"
+													Click="ViewMyAgenda">
+												<Grid Background="#FF1BA1E2" Width="141" Height="141">
+													<!--Icon-->
+													<Grid Width="41" Height="44" Margin="0,-13,0,0">
+														<Path x:Name="LeftEar" Data="M50.187,545.281 L50.1875,550.667 C51.9959,552.87 53.7374,552.776 55.4212,550.703 L55.3953,545.271 C53.7421,543.499 52.0069,543.483 50.187,545.281 z" Stretch="Fill" StrokeLineJoin="Round" UseLayoutRounding="False" Fill="White" Stroke="White" StrokeThickness="5" Margin="6.383,-2.989,28.445,37.578"/>
+														<Path x:Name="RightEar" Data="M50.187,545.281 L50.1875,550.667 C51.9959,552.87 53.7374,552.776 55.4212,550.703 L55.3953,545.271 C53.7421,543.499 52.0069,543.483 50.187,545.281 z" Stretch="Fill" StrokeThickness="5" StrokeLineJoin="Round" UseLayoutRounding="False" Fill="White" Stroke="White" Margin="29.008,-2.989,6.258,37.578"/>
+														<Path x:Name="CalendarBody" Data="M80.8219,557.434 L80.607,578.944 C80.6477,580.439 79.061,581.998 77.8009,581.942 L48.8008,581.825 C47.9395,581.924 45.3805,581.111 45.4299,579.254 L45.7714,557.414" Stretch="Fill" Stroke="White" StrokeThickness="3" StrokeLineJoin="Round" UseLayoutRounding="False" Margin="-2.063,10.349,-1.998,2.069">
+															<Path.Projection>
+																<PlaneProjection CenterOfRotationY="0.04"/>
+															</Path.Projection>
+														</Path>
+														<Path Data="M80.8219,557.434 L80.607,578.944 C80.6477,580.439 79.061,581.998 77.8009,581.942 L48.8008,581.825 C47.9395,581.924 45.3805,581.111 45.4299,579.254 L45.7714,557.414" Stretch="Fill" Stroke="White" StrokeThickness="3" StrokeLineJoin="Round" UseLayoutRounding="False" Margin="-2.063,10.349,-1.998,2.069"/>
+														<Path x:Name="Brow" Data="M218.292,367.25 L218.344,359.602 C218.497,358.87 218.941,358.451 219.657,358.321 L223.131,358.289 C223.865,358.418 224.485,358.854 224.438,359.509 C224.131,363.882 228.964,364.155 229.381,364.135 C230.318,364.135 234.63,363.473 234.375,358.931 C234.297,358.289 235.123,357.753 235.812,357.766 L245.561,357.75 C246.139,357.941 246.672,358.328 246.703,358.708 C246.937,361.612 248.359,364.233 251.797,364.087 C254.406,364.189 256.234,362.333 256.203,359.337 C256.431,358.52 256.899,358.153 257.546,358.125 L261.733,358.141 C262.463,358.24 262.863,358.721 263.046,359.453 L262.968,367.25 L259.969,367.222 C259.969,367.222 218.292,367.25 218.292,367.25 z" Fill="White" Margin="-1.693,1.757,-2.062,32.087" Stretch="Fill" StrokeThickness="0" StrokeLineJoin="Round" UseLayoutRounding="False"/>
+														<TextBlock Text="28" x:Name="TextBlock_Today" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,4,1,0">
+															<TextBlock.Projection>
+																<PlaneProjection CenterOfRotationY="0.1"/>
+															</TextBlock.Projection>
+														</TextBlock>
+														<Path x:Name="FakePage" Data="M1.17876,13.2892 L1.12887,36.0841 L1.40199,37.2966 L5.79944,37.3895 L6.01409,35.8366 L6.0456,13.2283 z" HorizontalAlignment="Left" Height="26.984" Margin="0.958,11.891,0,0" Stretch="Fill" StrokeLineJoin="Round" UseLayoutRounding="False" VerticalAlignment="Top" Width="39.011" StrokeThickness="0" Fill="#FF1BA1E2"
+															  Opacity="0">
+															<Path.Projection>
+																<PlaneProjection CenterOfRotationY="0"/>
+															</Path.Projection>
+														</Path>
+														<TextBlock x:Name="TextBlock_Yesterday" FontSize="22" Margin="7.786,9.368,8.213,4.631" HorizontalAlignment="Center" VerticalAlignment="Center"
+																   Opacity="0">
+															<TextBlock.Projection>
+																<PlaneProjection CenterOfRotationY="0.1"/>
+															</TextBlock.Projection>
+														</TextBlock>
+													</Grid>
+
+													<TextBlock HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="9,0,0,8" FontSize="20"
+															   Text="{Binding Path=LocalizedResources.MainPage_MyAgenda, Source={StaticResource LocalizedStrings}}"/>
+												</Grid>
+											</Button>
+
+										</Grid>
+
+									</StackPanel>
+
+								</ScrollViewer>
+						</Border>
+					</Grid>
+				</Grid>
+			
+			
+			</controls:PanoramaItem>
+            <!--
+推荐活动
+                -->
+			<controls:PanoramaItem Header="{Binding Path=LocalizedResources.MainPage_Activities, Source={StaticResource LocalizedStrings}}" 
+								   Foreground="{StaticResource ActivityThemeBrush}" 
+								   Style="{StaticResource WT_PanoramaItemStyle}"
+								   Margin="12,0,-42,0">
+				<Border x:Name="Border_Activities">
+                    <Grid>
+                        <ListBox x:Name="ListBox_Activity" Visibility="Collapsed" Style="{StaticResource ActivityListBoxStyle}"
+                                 MouseMove="ListBox_Activity_MouseMove"
+                                 SelectionChanged="ListBox_Activity_SelectionChanged">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Width="{Binding ActualWidth, ElementName=Border_PanoramaItemReferenceWidth}">
+                                        <StackPanel x:Name="StackPanel_Core" Margin="0,0,0,47"
+                                            Visibility="{Binding IsValid, Converter={StaticResource BoolToVisibilityConverter}}">
+                                            <!--Title-->
+                                            <TextBlock TextTrimming="WordEllipsis" FontSize="24" Margin="0,-6,0,0" Foreground="{StaticResource ActivityThemeBrush}"
+                                                        Text="{Binding Title}"/>
+
+                                            <!--Time-->
+                                            <StackPanel Orientation="Horizontal" Margin="0,12,0,0">
+                                                <Image Source="Images/Common/time_icon.png" Stretch="None"/>
+                                                <TextBlock FontSize="22" Foreground="White" TextTrimming="WordEllipsis" Margin="10,0,0,0"
+                                                           Text="{Binding DisplayTime}"/>
+                                            </StackPanel>
+
+                                            <Grid Margin="0,6,10,0" >
+
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition Width="50"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <!--Place-->
+                                                <Image Source="Images/Common/location_icon.png" Stretch="None" Margin="3,0,0,0"/>
+                                                <TextBlock Grid.Column="1" FontSize="22" Foreground="White" TextTrimming="WordEllipsis" Margin="15,0,-3,0"
+                                                            Text="{Binding Location}"/>
+
+                                                <!--Number of Participants-->
+                                                <TextBlock Grid.Column="3" TextAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="22" Foreground="White">
+								                    <Run Text="{Binding Schedule}"/>
+								                    <Run Text="{Binding Path=LocalizedResources.MainPage_Participants, Source={StaticResource LocalizedStrings}}"/>
+                                                </TextBlock>
+
+                                            </Grid>
+                                        </StackPanel>
+                                        <Button Visibility="{Binding Visibility, ElementName=StackPanel_Core, Converter={StaticResource TurnOverVisibilityConverter}}"
+                                                Content="{Binding Path=LocalizedResources.MainPage_LoadMoreActivities, Source={StaticResource LocalizedStrings}}" 
+                                                FontSize="22"  BorderThickness="0" Margin="0,-30,0,10"
+                                                Click="Button_LoadMoreActivities_Click"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+
+                        <TextBlock x:Name="TextBlock_NoActivity"  HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF999999" FontSize="22" Margin="0,-5,0,0"
+                                   Text="{Binding Path=LocalizedResources.MainPage_NoActivitiesPrompt, Source={StaticResource LocalizedStrings}}"
+                                   Visibility="{Binding Visibility, ElementName=ListBox_Activity, Converter={StaticResource TurnOverVisibilityConverter}}"/>
+                    </Grid>
+				</Border>
+			</controls:PanoramaItem>
+
+            <!--
+校园资讯
+                -->
+			<controls:PanoramaItem Foreground="{StaticResource NewsThemeBrush}" 
+								   Style="{StaticResource WT_PanoramaItemStyle}"
+								   Header="{Binding Path=LocalizedResources.MainPage_CampusInfo, Source={StaticResource LocalizedStrings}}" 
+								   Margin="12,0,-42,0">
+				<Border>
+                    <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                        <StackPanel>
+
+                            <Grid Height="660">
+
+                                <Grid x:Name="Grid_OfficialNote" VerticalAlignment="Top" Height="240">
+
+                                    <Rectangle Fill="Gray">
+                                        <toolkit:GestureService.GestureListener>
+                                            <toolkit:GestureListener Tap="NavToOfficialNotesList"/>
+                                        </toolkit:GestureService.GestureListener>
+                                    </Rectangle>
+
+                                    <Image x:Name="Image_OfficialNote" Source="{Binding FirstImageBrush}" Stretch="UniformToFill" IsHitTestVisible="False">
+                                        <Image.RenderTransform>
+                                            <CompositeTransform/>
+                                        </Image.RenderTransform>
+                                    </Image>
+                                    <Border HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,12,10,0" Width="130" Height="40" Background="#7F000000" IsHitTestVisible="False">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-3,0,0" Foreground="{StaticResource PhoneForegroundBrush}"
+                                                   Text="{Binding Path=LocalizedResources.MainPage_OfficialNotes, Source={StaticResource LocalizedStrings}}" />
+                                    </Border>
+
+                                </Grid>
+
+                                <Grid x:Name="Grid_ClubNews" VerticalAlignment="Top" Margin="0,165,0,0" Canvas.ZIndex="3" Height="165">
+
+                                    <Rectangle Fill="Gray">
+                                        <toolkit:GestureService.GestureListener>
+                                            <toolkit:GestureListener Tap="NavToClubNewsList"/>
+                                        </toolkit:GestureService.GestureListener>
+                                    </Rectangle>
+
+                                    <Image x:Name="Image_ClubNews" VerticalAlignment="Bottom"  Source="{Binding FirstImageBrush}" Stretch="UniformToFill" IsHitTestVisible="False">
+                                        <Image.RenderTransform>
+                                            <CompositeTransform/>
+                                        </Image.RenderTransform>
+                                    </Image>
+
+                                    <Border HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,12,10,0" Width="130" Height="40" Background="#7F000000" IsHitTestVisible="False">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-3,0,0" Foreground="{StaticResource PhoneForegroundBrush}"
+                                                   Text="{Binding Path=LocalizedResources.MainPage_ClubNews, Source={StaticResource LocalizedStrings}}"/>
+                                    </Border>
+
+                                </Grid>
+
+                                <Grid x:Name="Grid_TongjiNews" Canvas.ZIndex="2" Margin="0,165,0,0" Height="165">
+
+                                    <Rectangle Fill="Gray">
+                                        <toolkit:GestureService.GestureListener>
+                                            <toolkit:GestureListener Tap="NavToTongjiNewsList"/>
+                                        </toolkit:GestureService.GestureListener>
+                                    </Rectangle>
+
+                                    <Image x:Name="Image_TongjiNews" VerticalAlignment="Top"  Source="{Binding FirstImageBrush}" Stretch="UniformToFill" IsHitTestVisible="False">
+                                        <Image.RenderTransform>
+                                            <CompositeTransform/>
+                                        </Image.RenderTransform>
+                                    </Image>
+
+                                    <Border HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,12,10,0" Width="130" Height="40" Background="#7F000000" IsHitTestVisible="False">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-3,0,0" Foreground="{StaticResource PhoneForegroundBrush}"
+                                                   Text="{Binding Path=LocalizedResources.MainPage_TongjiNews, Source={StaticResource LocalizedStrings}}"/>
+                                    </Border>
+
+                                </Grid>
+
+                                <Grid x:Name="Grid_AroundNews" Canvas.ZIndex="3" Height="240" VerticalAlignment="Top"  Margin="0,495,0,0">
+
+                                    <Rectangle Fill="Gray">
+                                        <toolkit:GestureService.GestureListener>
+                                            <toolkit:GestureListener Tap="NavToAroundNewsList"/>
+                                        </toolkit:GestureService.GestureListener>
+                                    </Rectangle>
+
+                                    <Image x:Name="Image_AroundNews" VerticalAlignment="Bottom" Source="{Binding TitleImageBrush}" Stretch="UniformToFill" IsHitTestVisible="False">
+                                        <Image.RenderTransform>
+                                            <CompositeTransform/>
+                                        </Image.RenderTransform>
+                                    </Image>
+
+                                    <Border HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,12,10,0" Width="130" Height="40" Background="#7F000000" IsHitTestVisible="False">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-3,0,0" Foreground="{StaticResource PhoneForegroundBrush}"
+                                                   Text="{Binding Path=LocalizedResources.MainPage_AroundNews, Source={StaticResource LocalizedStrings}}"/>
+                                    </Border>
+
+                                </Grid>
+
+                                <!--Masks-->
+                                <Border Background="{StaticResource PhoneBackgroundBrush}" Canvas.ZIndex="4" VerticalAlignment="Top" Height="100" Margin="0,-100,0,0"/>
+                                <Border Background="{StaticResource PhoneBackgroundBrush}" Canvas.ZIndex="4" VerticalAlignment="Top" Height="25" Margin="0,140,0,0"/>
+                                <Border Background="{StaticResource PhoneBackgroundBrush}" Canvas.ZIndex="4" Margin="0,305,0,0" VerticalAlignment="Top" Height="25"/>
+                                <Border Background="{StaticResource PhoneBackgroundBrush}" Canvas.ZIndex="4" VerticalAlignment="Top" Margin="0,470,0,0" Height="25"/>
+                                <Border Background="{StaticResource PhoneBackgroundBrush}" Canvas.ZIndex="4" VerticalAlignment="Bottom" Height="25"/>
+
+                            </Grid>
+
+                        </StackPanel>
+                    </ScrollViewer>
+				</Border>
+			</controls:PanoramaItem>
+
+            <!--
+每周人物
+                -->
+			<controls:PanoramaItem x:Name="PanoramaItem_PeopleOfWeek" 
+								   Foreground="{StaticResource PeopleOfWeekThemeBrush}" 
+								   Style="{StaticResource WT_PanoramaItemStyle}"
+                                   Header="{Binding Path=LocalizedResources.MainPage_PeopleOfWeek, Source={StaticResource LocalizedStrings}}" 
+								   Margin="12,0,-42,0">
+				<Border x:Name="Border_PeopleOfWeek">
+                    <Grid>
+                        <ScrollViewer x:Name="ScrollViewer_PeopleOfWeek" Visibility="Collapsed" VerticalScrollBarVisibility="Hidden">
+                            <StackPanel>
+
+                                <!--Basic Information-->
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!--Avatar-->
+                                    <Image VerticalAlignment="Top" Width="45" Height="45" Stretch="UniformToFill"
+                                           Source="/Images/default_avatar_org.png"/>
+                                    <Image VerticalAlignment="Top" Width="45" Height="45" Stretch="UniformToFill"
+                                           Source="{Binding AvatarImageBrush}"/>
+
+                                    <StackPanel Grid.Column="1" Margin="12,0,0,0">
+                                        <!--Name-->
+                                        <TextBlock Text="{Binding Name}" FontSize="24" Margin="0,-5,0,0" Foreground="White"/>
+                                        <!--Title-->
+                                        <TextBlock Text="{Binding JobTitle}" TextWrapping="Wrap" Margin="0,6,0,-3" Foreground="#FF999999"/>
+                                    </StackPanel>
+                                </Grid>
+
+                                <!--Large Image-->
+                                <Image x:Name="PeopleOfWeekLargeImage" Stretch="UniformToFill" Margin="0,23,0,0" MaxHeight="240"
+									   Source="{Binding FirstImageBrush}"
+									   MouseLeftButtonDown="PeopleOfWeekLargeImage_MouseLeftButtonDown"
+									   MouseLeftButtonUp="PeopleOfWeekLargeImage_MouseLeftButtonUp"
+									   MouseLeave="PeopleOfWeekLargeImage_MouseLeave"
+									   MouseEnter="PeopleOfWeekLargeImage_MouseEnter">
+                                    <Image.Projection>
+                                        <PlaneProjection/>
+                                    </Image.Projection>
+                                    <Image.RenderTransform>
+                                        <CompositeTransform/>
+                                    </Image.RenderTransform>
+
+                                    <toolkit:GestureService.GestureListener>
+                                        <toolkit:GestureListener Tap="OnPeopleOfWeekLargeImageTap"/>
+                                    </toolkit:GestureService.GestureListener>
+
+                                    <Image.Resources>
+                                        <Storyboard x:Name="TapBottom">
+                                            <DoubleAnimation Duration="0" To="25" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="PeopleOfWeekLargeImage" d:IsOptimized="True"/>
+                                            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.CenterOfRotationX)" Storyboard.TargetName="PeopleOfWeekLargeImage" d:IsOptimized="True"/>
+                                            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.CenterOfRotationY)" Storyboard.TargetName="PeopleOfWeekLargeImage" d:IsOptimized="True"/>
+                                            <DoubleAnimation Duration="0" To="1.08" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="PeopleOfWeekLargeImage" d:IsOptimized="True"/>
+                                        </Storyboard>
+                                        <Storyboard x:Name="TapTop">
+                                            <DoubleAnimation Duration="0" To="-25" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)" Storyboard.TargetName="PeopleOfWeekLargeImage" d:IsOptimized="True"/>
+                                            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.CenterOfRotationX)" Storyboard.TargetName="PeopleOfWeekLargeImage" d:IsOptimized="True"/>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.CenterOfRotationY)" Storyboard.TargetName="PeopleOfWeekLargeImage" d:IsOptimized="True"/>
+                                            <PointAnimation Duration="0" To="0,1" Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="PeopleOfWeekLargeImage" d:IsOptimized="True"/>
+                                            <DoubleAnimation Duration="0" To="1.08" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="PeopleOfWeekLargeImage" d:IsOptimized="True"/>
+                                        </Storyboard>
+                                        <Storyboard x:Name="TapRight">
+                                            <DoubleAnimation Duration="0" To="-23" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)" Storyboard.TargetName="PeopleOfWeekLargeImage" d:IsOptimized="True"/>
+                                            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.CenterOfRotationX)" Storyboard.TargetName="PeopleOfWeekLargeImage" d:IsOptimized="True"/>
+                                            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.CenterOfRotationY)" Storyboard.TargetName="PeopleOfWeekLargeImage" d:IsOptimized="True"/>
+                                            <DoubleAnimation Duration="0" To="1.08" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="PeopleOfWeekLargeImage" d:IsOptimized="True"/>
+                                        </Storyboard>
+                                        <Storyboard x:Name="TapLeft">
+                                            <DoubleAnimation Duration="0" To="23" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)" Storyboard.TargetName="PeopleOfWeekLargeImage" d:IsOptimized="True"/>
+                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.CenterOfRotationX)" Storyboard.TargetName="PeopleOfWeekLargeImage" d:IsOptimized="True"/>
+                                            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.CenterOfRotationY)" Storyboard.TargetName="PeopleOfWeekLargeImage" d:IsOptimized="True"/>
+                                            <PointAnimation Duration="0" To="1,0" Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="PeopleOfWeekLargeImage" d:IsOptimized="True"/>
+                                            <DoubleAnimation Duration="0" To="1.08" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="PeopleOfWeekLargeImage" d:IsOptimized="True"/>
+                                        </Storyboard>
+                                        <Storyboard x:Name="TapCenter">
+                                            <DoubleAnimation Duration="0" To="0.97" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="PeopleOfWeekLargeImage" d:IsOptimized="True"/>
+                                            <PointAnimation Duration="0" To="0.5,0.5" Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="PeopleOfWeekLargeImage" d:IsOptimized="True"/>
+                                            <DoubleAnimation Duration="0" To="0.97" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="PeopleOfWeekLargeImage" d:IsOptimized="True"/>
+                                        </Storyboard>
+                                    </Image.Resources>
+                                </Image>
+
+                                <Grid Margin="0,20,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid>
+                                        <Path Data="M28.5305,644.727 L28.7085,634.415 C28.6804,634.109 28.6877,633.965 28.1268,633.952 L23.1972,633.952 C23.0852,630.451 25.8413,627.828 28.4369,627.953 L28.448,624.886 C22.2934,623.853 19.7389,629.486 19.5221,631.238 C19.3655,632.349 19.4079,640.344 19.4251,644.835 C19.4551,645.063 19.4663,645.127 19.8097,645.179 L27.9703,645.179 C28.4184,645.153 28.4969,644.972 28.5305,644.727 z" Fill="#FFAAACAF" HorizontalAlignment="Left" Height="24.694" Margin="0,0,0,-0.694" Stretch="Fill" Stroke="White" StrokeThickness="0" UseLayoutRounding="False" VerticalAlignment="Top" Width="12.972"/>
+                                        <Path Data="M28.5305,644.727 L28.7085,634.415 C28.6804,634.109 28.6877,633.965 28.1268,633.952 L23.1972,633.952 C23.0852,630.451 25.8413,627.828 28.4369,627.953 L28.448,624.886 C22.2934,623.853 19.7389,629.486 19.5221,631.238 C19.3655,632.349 19.4079,640.344 19.4251,644.835 C19.4551,645.063 19.4663,645.127 19.8097,645.179 L27.9703,645.179 C28.4184,645.153 28.4969,644.972 28.5305,644.727 z" Fill="#FFAAACAF" HorizontalAlignment="Left" Height="24.694" Margin="19.844,0,-0.816,-0.694" Stretch="Fill" Stroke="White" StrokeThickness="0" UseLayoutRounding="False" VerticalAlignment="Top" Width="12.972"/>
+                                    </Grid>
+
+                                    <!--One sentence-->
+                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Words}" TextWrapping="Wrap" Margin="11,-18,0,-1"/>
+                                </Grid>
+
+
+                                <Button Style="{StaticResource NoBorderButtonStyle}" FontSize="20"  HorizontalAlignment="Left" Margin="0,12,0,0"
+                                        Content="{Binding Path=LocalizedResources.MainPage_ViewPeopleOfWeekDetail, Source={StaticResource LocalizedStrings}}"
+							            Click="NavToPeopleOfWeek"/>
+
+                                <Border Height="20"/>
+
+                            </StackPanel>
+                        </ScrollViewer>
+
+
+                        <TextBlock Foreground="#FF999999" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,-5,0,0"
+								   Visibility="{Binding Visibility, ElementName=ScrollViewer_PeopleOfWeek, Converter={StaticResource TurnOverVisibilityConverter}, Mode=TwoWay}"
+                                   Text="{Binding Path=LocalizedResources.MainPage_NoPeopleOfWeekPrompt, Source={StaticResource LocalizedStrings}}"/>
+                    </Grid>
+				</Border>
+			</controls:PanoramaItem>
+
+
+        </controls:Panorama>
+		<Border x:Name="Border_PanoramaItemReferenceWidth" Margin="18,0,78,0" BorderThickness="1" BorderBrush="White"/>
+	</Grid>
+
+
+    <phone:PhoneApplicationPage.FontFamily>
+        <StaticResource ResourceKey="PhoneFontFamilyNormal"/>
+    </phone:PhoneApplicationPage.FontFamily>
+    <phone:PhoneApplicationPage.FontSize>
+        <StaticResource ResourceKey="PhoneFontSizeNormal"/>
+    </phone:PhoneApplicationPage.FontSize>
+    <phone:PhoneApplicationPage.Foreground>
+        <StaticResource ResourceKey="PhoneForegroundBrush"/>
+    </phone:PhoneApplicationPage.Foreground>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+</phone:PhoneApplicationPage>

@@ -1,0 +1,831 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WeTongji.Api.Domain.WTObject" Collapsed="true">
+    <Position X="16.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Api\Api.Domain\Data.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Domain.WTNews" Collapsed="true">
+    <Position X="7.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACCAAAAAgAAAEAAACAAAAAgIAAAABAAAACAAAABAQA=</HashCode>
+      <FileName>Api\Api.Domain\Data.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Domain.User" Collapsed="true">
+    <Position X="10.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAABCAAAACAAAQAAAQQEAAIAAAJAAEgIQAAEBA=</HashCode>
+      <FileName>Api\Api.Domain\Data.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Domain.UserProfile" Collapsed="true">
+    <Position X="13" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAACAAAAQBEAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Api\Api.Domain\Data.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Domain.Course" Collapsed="true">
+    <Position X="17.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEQAAAAACEQgAAAAAIAAAQAAEAAAAAAEAAgAAAAAAA=</HashCode>
+      <FileName>Api\Api.Domain\Data.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Domain.CourseInstance" Collapsed="true">
+    <Position X="22" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAICEQgAAAAAIAAAQAAAAAAAAAEAAgAAAAAAA=</HashCode>
+      <FileName>Api\Api.Domain\Data.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Domain.Event" Collapsed="true">
+    <Position X="24.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAAAAAgAEAAAAIAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Api\Api.Domain\Data.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Domain.Activity" Collapsed="true">
+    <Position X="26.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAISBCAEAAAgAEAAACIAAAAAIEAIEBAAAACAAAABAQA=</HashCode>
+      <FileName>Api\Api.Domain\Data.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Domain.Channel" Collapsed="true">
+    <Position X="28.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAEAAAAAAAAAAAAAAABAAAAAAAAAAAAE=</HashCode>
+      <FileName>Api\Api.Domain\Data.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Domain.Exam" Collapsed="true">
+    <Position X="31" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAMAAAAAACEQgAAAAAIAAAQAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Api\Api.Domain\Data.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Domain.SchoolNews" Collapsed="true">
+    <Position X="10.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Api\Api.Domain\Data.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Domain.ClubNews" Collapsed="true">
+    <Position X="4" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Api\Api.Domain\Data.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Domain.Around" Collapsed="true">
+    <Position X="6.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAIAAAAAAAAAABAAAAAAAAAACAA=</HashCode>
+      <FileName>Api\Api.Domain\Data.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Domain.ForStaff" Collapsed="true">
+    <Position X="8.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Api\Api.Domain\Data.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Domain.Version" Collapsed="true">
+    <Position X="15.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAAACAAAAAIAAAA=</HashCode>
+      <FileName>Api\Api.Domain\Data.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Domain.Person" Collapsed="true">
+    <Position X="19.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAQAAACAgAAAAAAQAAAQgIAAAABAAAACAAAApAQA=</HashCode>
+      <FileName>Api\Api.Domain\Data.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.ActivitiesGetRequest&lt;T&gt;" Collapsed="true">
+    <Position X="61" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAGIAAAAAAAQAAAAAAAAAAAAAAAAgAAIAIA=</HashCode>
+      <FileName>Api\Api.Request\Activity\ActivitiesGetRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.ActivityFavoriteRequest&lt;T&gt;" Collapsed="true">
+    <Position X="74.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\Activity\ActivityFavoriteRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.ActivityLikeRequest&lt;T&gt;" Collapsed="true">
+    <Position X="85.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\Activity\ActivityLikeRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.ActivityScheduleRequest&lt;T&gt;" Collapsed="true">
+    <Position X="99.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\Activity\ActivityScheduleRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.ActivityUnFavoriteRequest&lt;T&gt;" Collapsed="true">
+    <Position X="112.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\Activity\ActivityUnFavoriteRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.ActivityUnLikeRequest&lt;T&gt;" Collapsed="true">
+    <Position X="126.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\Activity\ActivityUnLikeRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.ActivityUnScheduleRequest&lt;T&gt;" Collapsed="true">
+    <Position X="7" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\Activity\ActivityUnScheduleRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.AroundFavoriteRequest&lt;T&gt;" Collapsed="true">
+    <Position X="18.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\Around\AroundFavoriteRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.AroundGetRequest&lt;T&gt;" Collapsed="true">
+    <Position X="29.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\Around\AroundGetRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.AroundLikeRequest&lt;T&gt;" Collapsed="true">
+    <Position X="40.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\Around\AroundLikeRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.AroundReadRequest&lt;T&gt;" Collapsed="true">
+    <Position X="52" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\Around\AroundReadRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.AroundsGetRequest&lt;T&gt;" Collapsed="true">
+    <Position X="63.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAGIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIA=</HashCode>
+      <FileName>Api\Api.Request\Around\AroundsGetRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.AroundUnFavoriteRequest&lt;T&gt;" Collapsed="true">
+    <Position X="76.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\Around\AroundUnFavoriteRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.AroundUnLikeRequest&lt;T&gt;" Collapsed="true">
+    <Position X="88" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\Around\AroundUnLikeRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.ChannelFavoriteRequest&lt;T&gt;" Collapsed="true">
+    <Position X="101.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\Channel\ChannelFavoriteRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.ChannelsGetRequest&lt;T&gt;" Collapsed="true">
+    <Position X="115" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\Channel\ChannelsGetRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.ChannelUnFavoriteRequest&lt;T&gt;" Collapsed="true">
+    <Position X="128.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\Channel\ChannelUnFavoriteRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.ClubNewsFavoriteRequest&lt;T&gt;" Collapsed="true">
+    <Position X="9.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\ClubNews\ClubNewsFavoriteRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.ClubNewsGetListRequest&lt;T&gt;" Collapsed="true">
+    <Position X="20.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAGIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIA=</HashCode>
+      <FileName>Api\Api.Request\ClubNews\ClubNewsGetListRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.ClubNewsGetRequest&lt;T&gt;" Collapsed="true">
+    <Position X="31.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\ClubNews\ClubNewsGetRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.ClubNewsLikeRequest&lt;T&gt;" Collapsed="true">
+    <Position X="43" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\ClubNews\ClubNewsLikeRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.ClubNewsReadRequest&lt;T&gt;" Collapsed="true">
+    <Position X="54.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\ClubNews\ClubNewsReadRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.ClubNewsUnFavoriteRequest&lt;T&gt;" Collapsed="true">
+    <Position X="65.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\ClubNews\ClubNewsUnFavoriteRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.ClubNewsUnLikeRequest&lt;T&gt;" Collapsed="true">
+    <Position X="79" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\ClubNews\ClubNewsUnLikeRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.FavoriteGetRequest&lt;T&gt;" Collapsed="true">
+    <Position X="90.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\Favorite\FavoriteGetRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.ForStaffFavoriteRequest&lt;T&gt;" Collapsed="true">
+    <Position X="103.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\ForStaff\ForStaffFavoriteRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.ForStaffGetRequest&lt;T&gt;" Collapsed="true">
+    <Position X="117.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\ForStaff\ForStaffGetRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.ForStaffLikeRequest&lt;T&gt;" Collapsed="true">
+    <Position X="130.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\ForStaff\ForStaffLikeRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.ForStaffReadRequest&lt;T&gt;" Collapsed="true">
+    <Position X="11.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\ForStaff\ForStaffReadRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.ForStaffsGetRequest&lt;T&gt;" Collapsed="true">
+    <Position X="22.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAGIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIA=</HashCode>
+      <FileName>Api\Api.Request\ForStaff\ForStaffsGetRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.ForStaffUnFavoriteRequest&lt;T&gt;" Collapsed="true">
+    <Position X="34" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\ForStaff\ForStaffUnFavoriteRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.ForStaffUnLikeRequest&lt;T&gt;" Collapsed="true">
+    <Position X="45.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\ForStaff\ForStaffUnLikeRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.WTUploadFileRequest&lt;T&gt;" Collapsed="true">
+    <Position X="67.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Api\Api.Request\IWTUploadFileRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.PeopleGetRequest&lt;T&gt;" Collapsed="true">
+    <Position X="81.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAGIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIA=</HashCode>
+      <FileName>Api\Api.Request\Person\PeopleGetRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.PersonFavoriteRequest&lt;T&gt;" Collapsed="true">
+    <Position X="92.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\Person\PersonFavoriteRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.PersonGetLatestRequest&lt;T&gt;" Collapsed="true">
+    <Position X="106" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\Person\PersonGetLatestRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.PersonLikeRequest&lt;T&gt;" Collapsed="true">
+    <Position X="119.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\Person\PersonLikeRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.PersonReadRequest&lt;T&gt;" Collapsed="true">
+    <Position X="133" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\Person\PersonReadRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.PersonUnFavoriteRequest&lt;T&gt;" Collapsed="true">
+    <Position X="13.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\Person\PersonUnFavoriteRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.PersonUnLikeRequest&lt;T&gt;" Collapsed="true">
+    <Position X="25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\Person\PersonUnLikeRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.ScheduleGetRequest&lt;T&gt;" Collapsed="true">
+    <Position X="36.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAACIAAAAAAAAAAAAAAAAEAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\Schedule\ScheduleGetRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.SchoolNewsFavoriteRequest&lt;T&gt;" Collapsed="true">
+    <Position X="47.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\SchoolNews\SchoolNewsFavoriteRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.SchoolNewsGetListRequest&lt;T&gt;" Collapsed="true">
+    <Position X="56.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAGIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIA=</HashCode>
+      <FileName>Api\Api.Request\SchoolNews\SchoolNewsGetListRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.SchoolNewsGetRequest&lt;T&gt;" Collapsed="true">
+    <Position X="70" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\SchoolNews\SchoolNewsGetRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.SchoolNewsLikeRequest&lt;T&gt;" Collapsed="true">
+    <Position X="83.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\SchoolNews\SchoolNewsLikeRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.SchoolNewsReadRequest&lt;T&gt;" Collapsed="true">
+    <Position X="94.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\SchoolNews\SchoolNewsReadRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.SchoolNewsUnFavoriteRequest&lt;T&gt;" Collapsed="true">
+    <Position X="108.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\SchoolNews\SchoolNewsUnFavoriteRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.SchoolNewsUnLikeRequest&lt;T&gt;" Collapsed="true">
+    <Position X="121.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\SchoolNews\SchoolNewsUnLikeRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.TimeTableGetRequest&lt;T&gt;" Collapsed="true">
+    <Position X="135.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\TimeTable\TimeTableGetRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.UserActiveRequest&lt;T&gt;" Collapsed="true">
+    <Position X="16" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACCIAAAAAAAAAAQAAAAAAAACAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\User\UserActiveRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.UserGetRequest&lt;T&gt;" Collapsed="true">
+    <Position X="27.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\User\UserGetRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.UserLogOffRequest&lt;T&gt;" Collapsed="true">
+    <Position X="38.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\User\UserLogOffRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.UserLogOnRequest&lt;T&gt;" Collapsed="true">
+    <Position X="49.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACCIAAAAAAAAAAAAAAAAAAACAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\User\UserLogOnRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.UserProfileRequest&lt;T&gt;" Collapsed="true">
+    <Position X="58.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\User\UserProfileRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.UserResetPassword&lt;T&gt;" Collapsed="true">
+    <Position X="72.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACCIAAAAAAAAAAQAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\User\UserResetPassword.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.UserUpdateAvatarRequest&lt;T&gt;" Collapsed="true">
+    <Position X="67.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACoAAAAAAAAAAAAAAAAAAAAAAAAgAgAAAA=</HashCode>
+      <FileName>Api\Api.Request\User\UserUpdateAvatar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.UserUpdatePasswordRequest&lt;T&gt;" Collapsed="true">
+    <Position X="97" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACJAAARABAAAAAAAEAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\User\UserUpdatePasswordRequest.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WeTongji.Api.Request.UserUpdateProfileRequest&lt;T&gt;" Collapsed="true">
+    <Position X="110.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACIAAARAAAAAAAAAAQAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\User\UserUpdateProfileRequest.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WeTongji.Api.Request.UserUpdateRequest&lt;T&gt;" Collapsed="true">
+    <Position X="124" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAACIAAARAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\User\UserUpdateRequest.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WeTongji.Api.Request.SystemVersionRequest&lt;T&gt;" Collapsed="true">
+    <Position X="137.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\Version\SystemVersionRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Request.WTRequest&lt;t&gt;">
+    <Position X="72.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACIAACAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\WTRequest.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WeTongji.Api.Response.ActivitiesGetResponse" Collapsed="true">
+    <Position X="6.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgIAAAAA=</HashCode>
+      <FileName>Api\Api.Response\Activity\ActivitiesGetResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Response.AroundGetResponse" Collapsed="true">
+    <Position X="11" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Api\Api.Response\Around\AroundGetResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Response.AroundsGetResponse" Collapsed="true">
+    <Position X="15.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Response\Around\AroundsGetResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Response.ChannelsGetResponse" Collapsed="true">
+    <Position X="20" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Api\Api.Response\Channel\ChannelGetResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Response.ClubNewsGetListResponse" Collapsed="true">
+    <Position X="24.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Response\ClubNews\ClubNewsGetListResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Response.ClubNewsGetResponse" Collapsed="true">
+    <Position X="29" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Api\Api.Response\ClubNews\ClubNewsGetResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Response.FavoriteGetResponse" Collapsed="true">
+    <Position X="33.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAACAAAEAAAAAAAAAAAAEgIAAAAA=</HashCode>
+      <FileName>Api\Api.Response\Favorite\FavoriteGetResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Response.ForStaffGetResponse" Collapsed="true">
+    <Position X="38" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Api\Api.Response\ForStaff\ForStaffGetResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Response.ForStaffsGetResponse" Collapsed="true">
+    <Position X="42.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAA=</HashCode>
+      <FileName>Api\Api.Response\ForStaff\ForStaffsGetResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Response.PeopleGetResponse" Collapsed="true">
+    <Position X="2" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Response\Person\PeopleGetResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Response.PersonGetLatestResponse" Collapsed="true">
+    <Position X="4.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Api\Api.Response\Person\PersonGetLatestResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Response.ScheduleGetResponse" Collapsed="true">
+    <Position X="8.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAgAAA=</HashCode>
+      <FileName>Api\Api.Response\Schedule\ScheduleGetResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Response.SchoolNewsGetListResponse" Collapsed="true">
+    <Position X="13.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Response\SchoolNews\SchoolNewsGetListResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Response.SchoolNewsGetResponse" Collapsed="true">
+    <Position X="17.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Api\Api.Response\SchoolNews\SchoolNewsGetResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Response.TimeTableGetResponse" Collapsed="true">
+    <Position X="22.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAhAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Api\Api.Response\TimeTable\TimeTableGetResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Response.UserGetResponse" Collapsed="true">
+    <Position X="26.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Api\Api.Response\User\UserGetResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Response.UserLogOnResponse" Collapsed="true">
+    <Position X="31.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Api\Api.Response\User\UserLogOnResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Response.UserProfileResponse" Collapsed="true">
+    <Position X="35.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Api\Api.Response\User\UserProfileResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Response.UserUpdatePasswordResponse" Collapsed="true">
+    <Position X="40.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Api\Api.Response\User\UserUpdatePasswordResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Response.SystemVersionResponse" Collapsed="true">
+    <Position X="44.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Api\Api.Response\Version\SystemVersionResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Util.FileItem" Collapsed="true">
+    <Position X="140" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAQBAAAAAAAAAAAAAAAAAAAQAADAAAA=</HashCode>
+      <FileName>Api\Api.Util\FileItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.Util.MD5Core" Collapsed="true">
+    <Position X="141.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IEAAAAAAQAAAAAAAAAAAAAAAQAAAAAACIAAAQAAgkAA=</HashCode>
+      <FileName>Api\Api.Util\MD5.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.WTDefaultClient&lt;T&gt;">
+    <Position X="145.25" Y="3.75" Width="3.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="WeTongji.Api.WTDefaultClient&lt;T&gt;.StringComparer" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Api\WTDefaultClient.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEBCAAAQAAAIAAQAACAAACAAAAAABCAgINAg=</HashCode>
+      <FileName>Api\WTDefaultClient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.WTDownloadImageClient">
+    <Position X="145.25" Y="10" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAQAAAAAAAEAAABEAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Api\WTDownloadImageClient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.WTDownloadImageStartedEventArgs">
+    <Position X="149" Y="10" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Api\WTDownloadImageClient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.WTDownloadImageCompletedEventArgs">
+    <Position X="149" Y="11.75" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAABAAAA=</HashCode>
+      <FileName>Api\WTDownloadImageClient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.WTDownloadImageFailedEventArgs">
+    <Position X="149" Y="13.75" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Api\WTDownloadImageClient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.WTException">
+    <Position X="156" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Api\WTException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.WTExecuteCompletedEventArgs&lt;T&gt;">
+    <Position X="152.25" Y="5.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Api\WTExecuteCompletedEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.WTExecuteFailedEventArgs&lt;T&gt;">
+    <Position X="156" Y="3.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Api\WTExecuteFailedEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.WTResponse">
+    <Position X="23.5" Y="11.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Api\WTResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.WTResponseEx&lt;T&gt;">
+    <Position X="152.25" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Api\WTResponseEx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeTongji.Api.WTStatus">
+    <Position X="149.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Api\WTStatus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="WeTongji.Api.Util.ABCDStruct" Collapsed="true">
+    <Position X="140" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApAEAAAA=</HashCode>
+      <FileName>Api\Api.Util\MD5.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="WeTongji.Api.Request.IWTRequest&lt;T&gt;" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACIAACAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\IWTRequest.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WeTongji.Api.Request.IWTUploadRequest&lt;T&gt;" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Api\Api.Request\WTUploadRequest.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WeTongji.Api.IWTLogger" Collapsed="true">
+    <Position X="140" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAEAAAAAAEAAAAA=</HashCode>
+      <FileName>Api\IWTLogger.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="WeTongji.Api.Util.SortEnumerator" Collapsed="true">
+    <Position X="140" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAQACAAAIBAAAAAAAAAAAA=</HashCode>
+      <FileName>Api\Api.Util\SortEnumerator.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="WeTongji.Api.Util.Status">
+    <Position X="149.25" Y="5.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAIAQABAEAAIgAAAAAAAEkAgAAAAAACAAAIAAAgUA=</HashCode>
+      <FileName>Api\Api.Util\Status.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

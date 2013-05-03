@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E43F9E0F-59D1-4BF2-8B1B-E1CF10F9792E}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WTSDK</RootNamespace>
+    <AssemblyName>WTSDK</AssemblyName>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <SilverlightVersion>
+    </SilverlightVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>Bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>
+    </PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>Bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>
+    </PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>Bin\ARM\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>
+    </PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>Bin\ARM\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>
+    </PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MyToolkit">
+      <HintPath>..\packages\MyToolkit.1.13.0\lib\sl4-wp71\MyToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Properties\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\Api.Domain\Data.cs" />
+    <Compile Include="Api\Api.Request\Activity\ActivityFavoriteRequest.cs" />
+    <Compile Include="Api\Api.Request\Activity\ActivitiesGetRequest.cs" />
+    <Compile Include="Api\Api.Request\Activity\ActivityUnFavoriteRequest.cs" />
+    <Compile Include="Api\Api.Request\Activity\ActivityLikeRequest.cs" />
+    <Compile Include="Api\Api.Request\Activity\ActivityUnLikeRequest.cs" />
+    <Compile Include="Api\Api.Request\Activity\ActivityScheduleRequest.cs" />
+    <Compile Include="Api\Api.Request\Activity\ActivityUnScheduleRequest.cs" />
+    <Compile Include="Api\Api.Request\Channel\ChannelsGetRequest.cs" />
+    <Compile Include="Api\Api.Request\Channel\ChannelFavoriteRequest.cs" />
+    <Compile Include="Api\Api.Request\Channel\ChannelUnFavoriteRequest.cs" />
+    <Compile Include="Api\Api.Request\ClubNews\ClubNewsFavoriteRequest.cs" />
+    <Compile Include="Api\Api.Request\ClubNews\ClubNewsGetListRequest.cs" />
+    <Compile Include="Api\Api.Request\ClubNews\ClubNewsGetRequest.cs" />
+    <Compile Include="Api\Api.Request\ClubNews\ClubNewsLikeRequest.cs" />
+    <Compile Include="Api\Api.Request\ClubNews\ClubNewsReadRequest.cs" />
+    <Compile Include="Api\Api.Request\ClubNews\ClubNewsUnFavoriteRequest.cs" />
+    <Compile Include="Api\Api.Request\ClubNews\ClubNewsUnLikeRequest.cs" />
+    <Compile Include="Api\Api.Request\Around\AroundFavoriteRequest.cs" />
+    <Compile Include="Api\Api.Request\Around\AroundsGetRequest.cs" />
+    <Compile Include="Api\Api.Request\Around\AroundGetRequest.cs" />
+    <Compile Include="Api\Api.Request\Around\AroundLikeRequest.cs" />
+    <Compile Include="Api\Api.Request\Around\AroundReadRequest.cs" />
+    <Compile Include="Api\Api.Request\Around\AroundUnFavoriteRequest.cs" />
+    <Compile Include="Api\Api.Request\Around\AroundUnLikeRequest.cs" />
+    <Compile Include="Api\Api.Request\IWTUploadFileRequest.cs" />
+    <Compile Include="Api\Api.Request\User\UserProfileRequest.cs" />
+    <Compile Include="Api\Api.Request\User\UserUpdateProfileRequest.cs" />
+    <Compile Include="Api\Api.Response\User\UserProfileResponse.cs" />
+    <Compile Include="Api\WTDownloadImageClient.cs" />
+    <Compile Include="Api\Api.Request\Person\PersonFavoriteRequest.cs" />
+    <Compile Include="Api\Api.Request\Person\PeopleGetRequest.cs" />
+    <Compile Include="Api\Api.Request\Person\PersonLikeRequest.cs" />
+    <Compile Include="Api\Api.Request\Person\PersonReadRequest.cs" />
+    <Compile Include="Api\Api.Request\Person\PersonGetLatestRequest.cs" />
+    <Compile Include="Api\Api.Request\Person\PersonUnFavoriteRequest.cs" />
+    <Compile Include="Api\Api.Request\Person\PersonUnLikeRequest.cs" />
+    <Compile Include="Api\Api.Request\ForStaff\ForStaffFavoriteRequest.cs" />
+    <Compile Include="Api\Api.Request\ForStaff\ForStaffGetRequest.cs" />
+    <Compile Include="Api\Api.Request\ForStaff\ForStaffLikeRequest.cs" />
+    <Compile Include="Api\Api.Request\ForStaff\ForStaffReadRequest.cs" />
+    <Compile Include="Api\Api.Request\ForStaff\ForStaffsGetRequest.cs" />
+    <Compile Include="Api\Api.Request\ForStaff\ForStaffUnFavoriteRequest.cs" />
+    <Compile Include="Api\Api.Request\ForStaff\ForStaffUnLikeRequest.cs" />
+    <Compile Include="Api\Api.Request\Favorite\FavoriteGetRequest.cs" />
+    <Compile Include="Api\Api.Request\IWTRequest.cs" />
+    <Compile Include="Api\Api.Request\WTUploadRequest.cs" />
+    <Compile Include="Api\Api.Request\Schedule\ScheduleGetRequest.cs" />
+    <Compile Include="Api\Api.Request\SchoolNews\SchoolNewsFavoriteRequest.cs" />
+    <Compile Include="Api\Api.Request\SchoolNews\SchoolNewsLikeRequest.cs" />
+    <Compile Include="Api\Api.Request\SchoolNews\SchoolNewsUnFavoriteRequest.cs" />
+    <Compile Include="Api\Api.Request\SchoolNews\SchoolNewsUnLikeRequest.cs" />
+    <Compile Include="Api\Api.Request\SchoolNews\SchoolNewsGetRequest.cs" />
+    <Compile Include="Api\Api.Request\SchoolNews\SchoolNewsGetListRequest.cs" />
+    <Compile Include="Api\Api.Request\SchoolNews\SchoolNewsReadRequest.cs" />
+    <Compile Include="Api\Api.Request\TimeTable\TimeTableGetRequest.cs" />
+    <Compile Include="Api\Api.Request\User\UserActiveRequest.cs" />
+    <Compile Include="Api\Api.Request\User\UserGetRequest.cs" />
+    <Compile Include="Api\Api.Request\User\UserLogOffRequest.cs" />
+    <Compile Include="Api\Api.Request\User\UserLogOnRequest.cs" />
+    <Compile Include="Api\Api.Request\User\UserResetPassword.cs" />
+    <Compile Include="Api\Api.Request\User\UserUpdateAvatar.cs" />
+    <Compile Include="Api\Api.Request\User\UserUpdatePasswordRequest.cs" />
+    <Compile Include="Api\Api.Request\User\UserUpdateRequest.cs" />
+    <Compile Include="Api\Api.Request\Version\SystemVersionRequest.cs" />
+    <Compile Include="Api\Api.Request\WTRequest.cs" />
+    <Compile Include="Api\Api.Response\Activity\ActivitiesGetResponse.cs" />
+    <Compile Include="Api\Api.Response\Channel\ChannelGetResponse.cs" />
+    <Compile Include="Api\Api.Response\ClubNews\ClubNewsGetListResponse.cs" />
+    <Compile Include="Api\Api.Response\ClubNews\ClubNewsGetResponse.cs" />
+    <Compile Include="Api\Api.Response\Around\AroundsGetResponse.cs" />
+    <Compile Include="Api\Api.Response\Around\AroundGetResponse.cs" />
+    <Compile Include="Api\Api.Response\Person\PeopleGetResponse.cs" />
+    <Compile Include="Api\Api.Response\Person\PersonGetLatestResponse.cs" />
+    <Compile Include="Api\Api.Response\ForStaff\ForStaffGetResponse.cs" />
+    <Compile Include="Api\Api.Response\ForStaff\ForStaffsGetResponse.cs" />
+    <Compile Include="Api\Api.Response\Favorite\FavoriteGetResponse.cs" />
+    <Compile Include="Api\Api.Response\Schedule\ScheduleGetResponse.cs" />
+    <Compile Include="Api\Api.Response\SchoolNews\SchoolNewsGetResponse.cs" />
+    <Compile Include="Api\Api.Response\SchoolNews\SchoolNewsGetListResponse.cs" />
+    <Compile Include="Api\Api.Response\TimeTable\TimeTableGetResponse.cs" />
+    <Compile Include="Api\Api.Response\User\UserGetResponse.cs" />
+    <Compile Include="Api\Api.Response\User\UserLogOnResponse.cs" />
+    <Compile Include="Api\Api.Response\User\UserUpdatePasswordResponse.cs" />
+    <Compile Include="Api\Api.Response\Version\SystemVersionResponse.cs" />
+    <Compile Include="Api\Api.Util\FileItem.cs" />
+    <Compile Include="Api\Api.Util\MD5.cs" />
+    <Compile Include="Api\Api.Util\SortEnumerator.cs" />
+    <Compile Include="Api\Api.Util\Status.cs" />
+    <Compile Include="Api\WTDefaultClient.cs" />
+    <Compile Include="Api\IWTLogger.cs" />
+    <Compile Include="Api\WTException.cs" />
+    <Compile Include="Api\WTExecuteCompletedEventArgs.cs" />
+    <Compile Include="Api\WTExecuteFailedEventArgs.cs" />
+    <Compile Include="Api\WTResponse.cs" />
+    <Compile Include="Api\WTResponseEx.cs" />
+    <Compile Include="Api\WTStatus.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <ProjectExtensions />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

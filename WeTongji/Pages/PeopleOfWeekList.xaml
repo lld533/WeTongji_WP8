@@ -1,0 +1,92 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="WeTongji.PeopleOfWeekList"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Converter="clr-namespace:WeTongji.Converter"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <phone:PhoneApplicationPage.Resources>
+        <Converter:NumberToChineseNumberStringConverter x:Key="NumberToChineseNumberStringConverter"/>
+        <Converter:StringIsIntToVisibilityConverter x:Key="StringIsIntToVisibilityConverter"/>
+        <Converter:TurnOverVisibilityConverter x:Key="TurnOverVisibilityConverter"/>
+    </phone:PhoneApplicationPage.Resources>
+
+    <Grid Margin="20,0,20,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!--Page title-->
+        <TextBlock Text="{Binding Path=LocalizedResources.PeopleOfWeekList_PageTitle, Source={StaticResource LocalizedStrings}}" 
+                   Foreground="{StaticResource PeopleOfWeekThemeBrush}" Margin="0,16,0,15" FontSize="22"/>
+
+        <Grid Grid.Row="1">
+            <TextBlock x:Name="TextBlock_NoSource" Visibility="Collapsed" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="22" Foreground="#FF999999"/>
+            <Grid Visibility="{Binding Visibility, ElementName=TextBlock_NoSource, Converter={StaticResource TurnOverVisibilityConverter}}">
+                
+                <!--Loading...-->
+                <TextBlock Text="{Binding Path=LocalizedResources.PeopleOfWeekList_Loading, Source={StaticResource LocalizedStrings}}" 
+                           FontSize="22" Foreground="#FF999999" HorizontalAlignment="Left" VerticalAlignment="Top"
+                           Visibility="{Binding Visibility, ElementName=ListBox_Core, Converter={StaticResource TurnOverVisibilityConverter}}"/>
+                <!--List-->
+                <ListBox x:Name="ListBox_Core"  BorderThickness="0" BorderBrush="{x:Null}"
+                 SelectionChanged="ListBox_Core_SelectionChanged"
+				 ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="0,0,0,25">
+                                <!--Title-->
+                                <TextBlock x:Name="TextBlock_BasicTitle" FontSize="21" Foreground="White" Margin="0,-3,0,0"
+                                   Visibility="{Binding NO, Converter={StaticResource StringIsIntToVisibilityConverter}}">
+                                        <Run Text="{Binding Path=LocalizedResources.PeopleOfWeekList_VolPrefix, Source={StaticResource LocalizedStrings}}"/>
+                                        <Run Text="{Binding NO, Converter={StaticResource NumberToChineseNumberStringConverter}}"/>
+                                        <Run Text="{Binding Path=LocalizedResources.PeopleOfWeekList_VolSuffix, Source={StaticResource LocalizedStrings}}"/>
+                                </TextBlock>
+                                <TextBlock x:Name="TextBlock_SpecialTitle" FontSize="21" Foreground="White" Margin="0,-3,0,0" FontWeight="Bold"
+                                   Visibility="{Binding Visibility, ElementName=TextBlock_BasicTitle, Converter={StaticResource TurnOverVisibilityConverter}}"
+                                   Text="{Binding NO}"/>
+
+                                <!--Avatar & Name-->
+                                <Grid Height="60"  Margin="0,17,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition Width="14"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!--@_@-->
+                                    <Image Stretch="UniformToFill" Source="/Images/default_avatar_org.png"/>
+                                    <Image Stretch="UniformToFill" Source="{Binding AvatarImageBrush}"/>
+
+                                    <Grid Grid.Column="2" Margin="0,4">
+                                        <TextBlock Text="{Binding Name}" 
+                                           TextTrimming="WordEllipsis" VerticalAlignment="Top" Foreground="{StaticResource PeopleOfWeekThemeBrush}" Margin="0,-7,0,0" FontSize="23"/>
+                                        <TextBlock Text="{Binding JobTitle}"
+                                           TextTrimming="WordEllipsis" VerticalAlignment="Bottom" Foreground="{StaticResource PhoneForegroundBrush}" FontSize="18" Margin="0,0,0,-4"/>
+                                    </Grid>
+
+                                </Grid>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+        </Grid>
+
+    </Grid>
+    
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar/>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

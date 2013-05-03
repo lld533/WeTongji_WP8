@@ -1,0 +1,259 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="WeTongji.MapAddress"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:NokiaMap="clr-namespace:NokiaMapSDK;assembly=NokiaMapSDK"
+    xmlns:StaticMapServiceProvider="clr-namespace:JeffWilcox.Controls;assembly=JeffWilcox.Maps"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:geo="clr-namespace:System.Device.Location;assembly=System.Device"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:maptk="clr-namespace:Microsoft.Phone.Maps.Toolkit;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:BingMap="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps"
+    xmlns:MSPCMCore="clr-namespace:Microsoft.Phone.Controls.Maps.Core;assembly=Microsoft.Phone.Controls.Maps"
+    xmlns:NokiaMapsSDK="clr-namespace:WeTongji.Extensions.NokiaMapsSDK"
+    xmlns:GoogleMapsSDK="clr-namespace:WeTongji.Extensions.GoogleMapsSDK"
+    xmlns:CustomControls="clr-namespace:WeTongji.WTCustomControls;assembly=TileBrush"
+	xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:System="clr-namespace:System;assembly=mscorlib"
+    xmlns:Converter="clr-namespace:WeTongji.Converter"
+    xmlns:bb="clr-namespace:WeTongji"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+    <!---->
+    
+    <phone:PhoneApplicationPage.Resources>
+        <!--Style of the Button that gives the direction-->
+    <Style x:Key="IntelligentCurrentPlaceFinder" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Grid.Resources>
+
+                            <Storyboard x:Name="RevealPointer">
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="path">
+                                    <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="path">
+                                    <EasingDoubleKeyFrame KeyTime="0" Value="19"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+
+                            <Storyboard x:Name="PointDirection">
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="path">
+                                    <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:2" Value="180">
+                                        <EasingDoubleKeyFrame.EasingFunction>
+                                            <SineEase EasingMode="EaseOut"/>
+                                        </EasingDoubleKeyFrame.EasingFunction>
+                                    </EasingDoubleKeyFrame>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                            
+                            <Storyboard x:Name="HidePointer">
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="path">
+                                    <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:2" Value="1"/>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="0"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="path">
+                                    <EasingDoubleKeyFrame KeyTime="0" Value="19"/>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:2" Value="19"/>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:2.5" Value="10"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </Grid.Resources>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill)" Storyboard.TargetName="ellipse">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <SolidColorBrush Color="Gray"/>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="path">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Collapsed</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOver"/>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard RepeatBehavior="Forever">
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="mousedown_ellipse">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:1.2">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="mousedown_ellipse">
+                                            <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="1"/>
+                                            <EasingDoubleKeyFrame KeyTime="0:0:2.4" Value="3">
+                                                <EasingDoubleKeyFrame.EasingFunction>
+                                                    <SineEase EasingMode="EaseOut"/>
+                                                </EasingDoubleKeyFrame.EasingFunction>
+                                            </EasingDoubleKeyFrame>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="mousedown_ellipse">
+                                            <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="1"/>
+                                            <EasingDoubleKeyFrame KeyTime="0:0:2.4" Value="3">
+                                                <EasingDoubleKeyFrame.EasingFunction>
+                                                    <SineEase EasingMode="EaseOut"/>
+                                                </EasingDoubleKeyFrame.EasingFunction>
+                                            </EasingDoubleKeyFrame>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="mousedown_ellipse">
+                                            <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="1">
+                                                <EasingDoubleKeyFrame.EasingFunction>
+                                                    <SineEase EasingMode="EaseOut"/>
+                                                </EasingDoubleKeyFrame.EasingFunction>
+                                            </EasingDoubleKeyFrame>
+                                            <EasingDoubleKeyFrame KeyTime="0:0:2.4" Value="0">
+                                                <EasingDoubleKeyFrame.EasingFunction>
+                                                    <SineEase EasingMode="EaseOut"/>
+                                                </EasingDoubleKeyFrame.EasingFunction>
+                                            </EasingDoubleKeyFrame>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.StrokeThickness)" Storyboard.TargetName="mousedown_ellipse">
+                                            <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="3"/>
+                                            <EasingDoubleKeyFrame KeyTime="0:0:2.4" Value="2">
+                                                <EasingDoubleKeyFrame.EasingFunction>
+                                                    <QuarticEase EasingMode="EaseOut"/>
+                                                </EasingDoubleKeyFrame.EasingFunction>
+                                            </EasingDoubleKeyFrame>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused"/>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Ellipse x:Name="mousedown_ellipse" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed" Stroke="#EFFFFFFF" StrokeThickness="3">
+                            <Ellipse.RenderTransform>
+                                <CompositeTransform/>
+                            </Ellipse.RenderTransform>
+                        </Ellipse>
+                        <Grid x:Name="basic_elements">
+                            <Ellipse Stroke="White" StrokeThickness="2"/>
+                            <Ellipse Stroke="#E5000000" StrokeThickness="0.3"/>
+                            <Ellipse Fill="#E5000000" Height="44" Width="44"/>
+                            <Path x:Name="path" Width="8" VerticalAlignment="Bottom" UseLayoutRounding="False" Stretch="Fill" RenderTransformOrigin="0.5,1" Margin="0,0,0,24" Height="19" Fill="White" Data="M0,1 L1,1 L0.5,0 z" Opacity="0">
+                                <Path.RenderTransform>
+                                    <CompositeTransform/>
+                                </Path.RenderTransform>
+                            </Path>
+                            <Ellipse x:Name="ellipse" Width="25" StrokeThickness="1.5" Stroke="White" Height="25" Fill="Green"/>
+                        </Grid>
+                        <Border Name="PlaceHolder" Margin="-10" Background="#00FFFFFF"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Define Margin for shadow and PositionOrigin
+        Remove unnecessary rectangle-->
+    <Style x:Key="ShadowedPushpinStyle" TargetType="maptk:Pushpin">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="maptk:Pushpin">
+                    <ContentPresenter x:Name="Presenter" Content="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}" Margin="0,0,0,-6"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="PositionOrigin" Value="0.5,1"/>
+    </Style>
+	
+	<Style x:Key="IconPushpinStyle" TargetType="maptk:Pushpin">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="maptk:Pushpin">
+                    <ContentPresenter x:Name="Presenter" Content="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}" Margin="0,0,-10,-6"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="PositionOrigin" Value="0.5,1"/>
+    </Style>
+
+    <Style x:Key="CircularPushpinStyle" TargetType="maptk:Pushpin">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="maptk:Pushpin">
+                    <ContentPresenter x:Name="Presenter" Content="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="PositionOrigin" Value="0.5,0.5"/>
+    </Style>
+
+    <Converter:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    <Converter:ReversedBoolToVisibilityConverter x:Key="ReversedBoolToVisibilityConverter"/>
+
+    <bb:BillBoardItem x:Key="CurrentPositionBillBoardItem"/>
+    <bb:BillBoardItem x:Key="MyBillBoardItem"/>
+
+    </phone:PhoneApplicationPage.Resources>
+
+    <Grid>
+
+        <!--Map-->
+        <BingMap:Map x:Name="MyMap" ZoomLevel="18">
+            <!--<BingMap:Map.TileSources>
+                <GoogleMapsSDK:GoogleMapsRoadTileSource/>
+            </BingMap:Map.TileSources>-->
+
+            <maptk:MapExtensions.Children>
+                
+                <!--Target position pushpins-->
+                <maptk:Pushpin Style="{StaticResource ShadowedPushpinStyle}"
+                               DataContext="{StaticResource MyBillBoardItem}"
+							   >
+                    <bb:BillboardPushpin BillboardTapped="TargetBillboard_MouseLeftButtonUp"
+                                         Closed="ReOpenIconPushpin"/>
+                </maptk:Pushpin>
+                <maptk:Pushpin Style="{StaticResource IconPushpinStyle}">
+                    <bb:IconPushpin IconTapped="MyIconPushpinImage_MouseLeftButtonUp"
+                                    Closed="CloseMyPushpinCompleted"/>
+                </maptk:Pushpin>
+                
+                <!--Current position pushpins-->
+                <maptk:Pushpin Style="{StaticResource CircularPushpinStyle}">
+                    <bb:CurrentPositionPushpin MouseLeftButtonUp="CurrentPositionPushpin_MouseLeftButtonUp"/>
+                </maptk:Pushpin>
+                <maptk:Pushpin Style="{StaticResource ShadowedPushpinStyle}"
+                               DataContext="{StaticResource CurrentPositionBillBoardItem}">
+                    <bb:BillboardPushpin BillboardTapped="CurrentBillboard_MouseLeftButtonUp"/>
+                </maptk:Pushpin>
+            </maptk:MapExtensions.Children>
+            
+        </BingMap:Map>
+
+        <CustomControls:TilePanel x:Name="pnlTile" TileWidth="180" TileHeight="180" Visibility="{Binding IsEnabled, ElementName=DirectionButton, Converter={StaticResource ReversedBoolToVisibilityConverter}}">
+            <CustomControls:TilePanel.Image>
+                <ImageBrush ImageSource="BaseMapTile.png" />
+            </CustomControls:TilePanel.Image>
+        </CustomControls:TilePanel>
+
+        <!--Direction Button-->
+        <Button x:Name="DirectionButton" Content="Button" HorizontalAlignment="Left" Height="48" Margin="20,0,0,30" 
+                Style="{StaticResource IntelligentCurrentPlaceFinder}" VerticalAlignment="Bottom" Width="48"
+                Click="ViewCurrentLocation" Hold="DirectionButtonHold" IsEnabled="False" IsEnabledChanged="DirectionButtonIsEnabledChanged"/>
+    </Grid>
+
+</phone:PhoneApplicationPage>

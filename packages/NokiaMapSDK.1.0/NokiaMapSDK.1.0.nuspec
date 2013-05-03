@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>NokiaMapSDK</id>
+    <version>1.0</version>
+    <title>Nokia Map SDK</title>
+    <authors>jiangyongtao</authors>
+    <owners>jiangyongtao</owners>
+    <licenseUrl>http://nokiamapwpsdk.codeplex.com/license</licenseUrl>
+    <projectUrl>http://nokiamapwpsdk.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Nokia Map SDK is an assistant toolkit that encapsulates Nokia Map Image API, including interfaces and functions related to Basic Map,  Tilting Map, Address search, Points of interest and Routes.
+
+DLL reference of Nokia Map SDK are added to customer's App, so that the underlying API of the SDK can be invoked directly to display a map, or a Nokia Map control is used to display the map. By applying the SDK, the complexity of using the Nokia Map Image API can be simplified greatly and Nokia Map functions can be integrated in the application quickly.
+
+Nokia Map SDK是封装了Nokia Map Image API的辅助工具包，包含Basic Maps, Tilting Map, Address search, Points of interest和Routes相关的接口和功能。
+
+Nokia Map SDK通过在客户的App中加入其dll的引用，可以直接调用SDK的底层API显示地图，也可以使用Nokia Map控件来显示地图。使用此SDK，将会大大简化使用Nokia Map Image API的复杂度，快速在应用程序中集成NokiaMap功能。</description>
+    <references>
+      <reference file="NokiaMapSDK.dll" />
+    </references>
+  </metadata>
+</package>

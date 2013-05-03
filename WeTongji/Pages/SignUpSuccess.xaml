@@ -1,0 +1,35 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="WeTongji.SignUpSuccess"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+    
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar/>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+    <StackPanel Margin="20,0">
+        <TextBlock Text="WeTongji" FontSize="24" Margin="0,14,0,0"/>
+
+        <!--Page title-->
+        <TextBlock FontSize="45" Margin="0,18,0,0"
+                   Text="{Binding Path=LocalizedResources.SignUpSuccess_PageTitle, Source={StaticResource LocalizedStrings}}" />
+
+        <TextBlock TextWrapping="Wrap" Foreground="#FF999999" Margin="0,21,0,0" FontSize="19"
+				   Text="{Binding Path=LocalizedResources.SignUpSuccess_Prompt, Source={StaticResource LocalizedStrings}}" />
+
+        <Button HorizontalAlignment="Left" FontSize="19" MinWidth="204" BorderThickness="2" Margin="-5,27,0,0"
+			    Content="{Binding Path=LocalizedResources.SignUpSuccess_BrowseTongjiMail, Source={StaticResource LocalizedStrings}}"
+                Click="BrowseTongjiMail"/>
+    </StackPanel>
+
+</phone:PhoneApplicationPage>

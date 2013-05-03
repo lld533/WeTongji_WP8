@@ -1,0 +1,67 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="WeTongji.Agreement"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="WeTongji" FontSize="20"  Style="{StaticResource PhoneTextNormalStyle}" Margin="11,-2,0,0"/>
+            <TextBlock Margin="8,-7,0,0" FontSize="60"  Style="{StaticResource PhoneTextTitle1Style}"
+                       Text="{Binding Path=LocalizedResources.Agreement_PageTitle, Source={StaticResource LocalizedStrings}}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <ScrollViewer Grid.Row="1" Margin="21,3,21,0" VerticalScrollBarVisibility="Hidden">
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap" FontSize="20" Foreground="#FF999999">
+                    <TextBlock.Text>
+                        1.本应用使用同济大学电子邮件系统进行实名认证。用户须使用自己的@tongji.edu.cn电子邮件进行WeTongji账户激活操作。尚未注册邮箱的用户须访问mail.tongji.edu.cn先行完成邮箱的注册操作。本应用不对因同济大学电子邮件系统故障曹诚的影响负责。
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock TextWrapping="Wrap" FontSize="20" Margin="0,20,0,0" Foreground="#FF999999">
+                    <TextBlock.Text>
+                        2.用户不得冒充他人登录，不得冒用他人的名义发布信息，不得使用本应用侵犯他人的利益、损害他人的名誉。微同济校园信息服务小组有权清除存在上述侵权行为的用户。
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock TextWrapping="Wrap" FontSize="20" Margin="0,20,0,0" Foreground="#FF999999">
+                    <TextBlock.Text>
+                        3.本应用重视对用户个人隐私的保护。除法律或有法律赋予权限的部门要求或事先得到用户明确授权的情况外，本应用保证不对外公开或向第三方泄露用户个人隐私信息及用户在使用本应用过程中产生的数据。
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock TextWrapping="Wrap" FontSize="20" Margin="0,20,0,0" Foreground="#FF999999">
+                    <TextBlock.Text>
+                        4.本应用不保证所提供服务内容的及时性、安全性、准确性，也不对因提供的服务内容的谬误造成的影响负责。
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock TextWrapping="Wrap" FontSize="20" Margin="0,20,0,0" Foreground="#FF999999">
+                    <TextBlock.Text>
+                        5.微同济校园信息服务小组对本协议的条款具有修改权和变更权，并有义务在协议内容发生变更时向用户提示。如不同意对本协议相关条款的修改，用户有权并应当停止使用本应用。
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock TextWrapping="Wrap" FontSize="20" Margin="0,20" Foreground="#FF999999">
+                    <TextBlock.Text>
+                        6.微同济校园信息服务小组对本应用产生的同济信息具有所有权和使用权，并承诺在同济大学学生处的监督管理下通过正确的途径使用这些信息。
+                    </TextBlock.Text>
+                </TextBlock>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+
+</phone:PhoneApplicationPage>

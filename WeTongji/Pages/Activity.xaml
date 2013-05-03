@@ -1,0 +1,205 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:Converter="clr-namespace:WeTongji.Converter"
+    x:Class="WeTongji.Activity" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True"
+	x:Name="PageSelf">
+
+    <phone:PhoneApplicationPage.Resources>
+        <Converter:TurnOverVisibilityConverter x:Key="TurnOverVisibilityConverter"/>
+        <Style x:Key="DescriptionTextBlockStyle" TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="FontSize" Value="24"/>
+        </Style>
+
+        <Storyboard x:Key="IncreaseLikeNumberAnimation">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="TextBlock_Like">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="TextBlock_Like">
+                <EasingDoubleKeyFrame KeyTime="0" Value="18"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="DecreaseLikeNumberAnimation">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="TextBlock_Like">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="TextBlock_Like">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-18"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="IncreaseFavoriteNumberAnimation">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="TextBlock_Favorite">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="TextBlock_Favorite">
+                <EasingDoubleKeyFrame KeyTime="0" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="DecreaseFavoriteNumberAnimation">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="TextBlock_Favorite">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="TextBlock_Favorite">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-12"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+    </phone:PhoneApplicationPage.Resources>
+
+    <phone:PhoneApplicationPage.FontFamily>
+        <StaticResource ResourceKey="PhoneFontFamilyNormal"/>
+    </phone:PhoneApplicationPage.FontFamily>
+    <phone:PhoneApplicationPage.FontSize>
+        <StaticResource ResourceKey="PhoneFontSizeNormal"/>
+    </phone:PhoneApplicationPage.FontSize>
+    <phone:PhoneApplicationPage.Foreground>
+        <StaticResource ResourceKey="PhoneForegroundBrush"/>
+    </phone:PhoneApplicationPage.Foreground>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <!--Pivot Control-->
+        <controls:Pivot Title="{Binding Title}" Style="{StaticResource WTPivotStyle}" Foreground="{StaticResource ActivityThemeBrush}"
+                        TitleTemplate="{StaticResource WTPivotTitleTemplate}">
+            <!--Pivot item one-->
+            <controls:PivotItem Header="{Binding Path=LocalizedResources.Activity_EventIntroduction, Source={StaticResource LocalizedStrings}}" 
+                                Style="{StaticResource WTPivotItemStyle}">
+                <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                    <StackPanel>
+
+                        <!--Title-->
+                        <TextBlock Grid.Row="2" TextWrapping="Wrap" FontSize="45" Margin="0,-13,0,0" Foreground="{StaticResource ActivityThemeBrush}"
+                                   Text="{Binding Title}"/>
+
+                        <!--Time-->
+                        <Grid Grid.Row="4" Margin="0,14,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="21"/>
+                                <ColumnDefinition Width="15"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="/Images/Common/time_icon.png" VerticalAlignment="Center" Height="19"/>
+                            <TextBlock Grid.Column="2" TextWrapping="Wrap" Margin="0,0,0,3"
+                                       Text="{Binding DisplayTime}"/>
+                        </Grid>
+
+                        <!--Place-->
+                        <Grid Grid.Row="6" Margin="0,10,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="21"/>
+                                <ColumnDefinition Width="15"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="/Images/Common/location_icon.png" VerticalAlignment="Top" Margin="0,5,0,0"  Height="19"/>
+                            <TextBlock Grid.Column="2" TextWrapping="Wrap" Margin="0,0,0,3"
+                                       Text="{Binding Location}"/>
+                        </Grid>
+
+                        <!--Like and Favorite-->
+                        <Grid Margin="0,24,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="15"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="32"/>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="15"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!--Like-->
+                            <Grid>
+                                <Ellipse Width="40" Height="40" Fill="#FFC231CF"/>
+                                <Path Data="M18.4165,16.5002 C17.3522,14.1531 15.5654,12.8343 12.7805,12.9362 C9.4432,13.1664 7.42039,15.5308 7.81201,19.4698 C8.52983,23.1567 12.5318,27.6265 18.0625,31.252 C23.9037,27.8001 28.6939,22.6331 28.9168,18.8958 C29.0552,15.2347 27.1655,13.4121 24.1249,13.0615 C21.4678,12.9172 19.7035,14.3005 18.4165,16.5002 z" Fill="White" HorizontalAlignment="Center" Height="18.32" Stretch="Fill" StrokeThickness="0" UseLayoutRounding="False" VerticalAlignment="Center" Width="21.165" Margin="9.398,13,9.437,10.84"/>
+                            </Grid>
+                            <TextBlock x:Name="TextBlock_Like"  Grid.Column="2" FontSize="22" VerticalAlignment="Center"
+                                       Text="{Binding Like}">
+                                <TextBlock.RenderTransform>
+                                    <CompositeTransform/>
+                                </TextBlock.RenderTransform>
+                            </TextBlock>
+
+                            <!--Favorite-->
+                            <Grid Grid.Column="4">
+                                <Ellipse Width="40" Height="40" StrokeThickness="0" Fill="#FFFFCD01"/>
+                                <Path Data="M17.8752,16.0417 C18.3136,13.5979 18.6566,11.9707 20.0002,9.8333 C21.1848,11.9274 21.8936,14.0459 22.1677,16.147 C24.7069,15.81 27.5324,16.0325 29.3763,16.5011 C27.9863,18.6603 26.0461,19.706 23.6674,21.2087 C24.9117,23.6366 25.6177,26.1097 25.8342,28.624 C24.4351,28.367 22.5198,27.0915 19.9588,24.5414 C17.4534,27.1555 16.483,27.6123 14.2923,28.707 C14.5588,26.1425 15.3314,23.58 16.3751,21.2087 C14.1869,19.8743 12.1049,18.3897 10.6666,16.4162 C13.0567,15.9188 15.4873,15.8026 17.8752,16.0417 z" HorizontalAlignment="Left" Height="18.877" Margin="10.667,9.831,0,0" Stretch="Fill" StrokeThickness="0" UseLayoutRounding="False" VerticalAlignment="Top" Width="18.708" Fill="White"/>
+                            </Grid>
+                            <TextBlock x:Name="TextBlock_Favorite" Grid.Column="6" FontSize="22" VerticalAlignment="Center"
+                                       Text="{Binding Favorite}">
+                                <TextBlock.RenderTransform>
+                                    <CompositeTransform/>
+                                </TextBlock.RenderTransform>
+                            </TextBlock>
+                        </Grid>
+
+                        <TextBlock Text="{Binding Path=LocalizedResources.Activity_Source, Source={StaticResource LocalizedStrings}}" 
+                                   FontSize="24" Margin="0,30,0,0"/>
+
+                        <!--Author-->
+                        <Grid Margin="0,16,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="15"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <!--@_@-->
+                            <Image Source="/Images/default_avatar_profile.png" Stretch="Fill"
+                                   Width="50" Height="50"/>
+                            <Image Source="{Binding OrganizerAvatarImageBrush}" Stretch="Fill"
+                                   Width="50" Height="50"/>
+                            <TextBlock Grid.Column="2" VerticalAlignment="Center" Text="{Binding Organizer}" FontSize="24" TextWrapping="Wrap"/>
+                        </Grid>
+                    </StackPanel>
+                </ScrollViewer>
+            </controls:PivotItem>
+
+            <!--Pivot item two-->
+            <controls:PivotItem Header="{Binding Path=LocalizedResources.Activity_EventDetails, Source={StaticResource LocalizedStrings}}" 
+                                Style="{StaticResource WTPivotItemStyle}">
+                <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                    <StackPanel x:Name="StackPanel_Description"/>
+                </ScrollViewer>
+            </controls:PivotItem>
+
+            <controls:PivotItem Header="{Binding Path=LocalizedResources.Activity_EventIllustration, Source={StaticResource LocalizedStrings}}" 
+                                Style="{StaticResource WTPivotItemStyle}">
+                <Grid>
+                    <Image x:Name="Illustration" Visibility="Collapsed" Stretch="Uniform" VerticalAlignment="Top"  Source="{Binding ActivityImageBrush}">
+                        <toolkit:GestureService.GestureListener>
+                            <toolkit:GestureListener Tap="ViewActivityImage"/>
+                        </toolkit:GestureService.GestureListener>
+                    </Image>
+                    <TextBlock x:Name="NoIllustrationHint" FontSize="22" Foreground="#FF999999" 
+                               Text="{Binding Path=LocalizedResources.Activity_NoIllustrationPrompt, Source={StaticResource LocalizedStrings}}"
+                               Visibility="{Binding Visibility, ElementName=Illustration, Converter={StaticResource TurnOverVisibilityConverter}, Mode=TwoWay}"/>
+                </Grid>
+            </controls:PivotItem>
+        </controls:Pivot>
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar/>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

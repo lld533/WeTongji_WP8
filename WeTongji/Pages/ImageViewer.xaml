@@ -1,0 +1,68 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="WeTongji.ImageViewer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:toolkitPrimitives="clr-namespace:Microsoft.Phone.Controls.Primitives;assembly=Microsoft.Phone.Controls.Toolkit"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <phone:PhoneApplicationPage.Resources>
+
+        <Storyboard x:Name="PinchToClose" Completed="GoBack">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="image">
+                <!--Set in code-->
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="image">
+                <!--Set in code-->
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="DragDownToClose" Completed="GoBack">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="image">
+                <!--Set in code-->
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <!--Set in code-->
+                <EasingDoubleKeyFrame KeyTime="0:0:5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <ExponentialEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+    </phone:PhoneApplicationPage.Resources>
+
+    <Grid x:Name="Grid_Root" Background="#FF1B1B1B">
+        <Image x:Name="image"  RenderTransformOrigin="0.5, 0.5" CacheMode="BitmapCache" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Image.RenderTransform>
+                <CompositeTransform x:Name="transform" />
+            </Image.RenderTransform>
+        </Image>
+        <Button Opacity="0">
+            <toolkit:GestureService.GestureListener>
+                <toolkit:GestureListener PinchStarted="OnPinchStarted" PinchDelta="OnPinchDelta" PinchCompleted="OnPinchCompleted"
+                                                 DragDelta="OnDragDelta" DragCompleted="OnDragCompleted"
+                                                 DoubleTap="OnDoubleTap"/>
+            </toolkit:GestureService.GestureListener>
+        </Button>
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar/>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

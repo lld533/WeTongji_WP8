@@ -1,0 +1,1297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4B50F1F8-1D2F-4B41-A214-A62C68BA7A07}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WeTongji</RootNamespace>
+    <AssemblyName>WeTongji</AssemblyName>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <SilverlightVersion>
+    </SilverlightVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>en-US;zh-CN;</SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>WeTongji_$(Configuration)_$(Platform).xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>WeTongji.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>5.0.31017.0</ExpressionBlendVersion>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>Bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>
+    </PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>Bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>
+    </PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>Bin\ARM\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>
+    </PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>Bin\ARM\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>
+    </PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DH.Scrypt">
+      <HintPath>..\..\..\..\..\Desktop\DH.Scrypt.dll</HintPath>
+    </Reference>
+    <Reference Include="FlurryWP8SDK">
+      <HintPath>..\..\..\..\..\Desktop\FlurryWP8SDK.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZLib.Phone">
+      <HintPath>..\packages\ImageTools.0.3.1\lib\sl3-wp\ICSharpCode.SharpZLib.Phone.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageTools">
+      <HintPath>..\packages\ImageTools.0.3.1\lib\sl3-wp\ImageTools.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageTools.Controls">
+      <HintPath>..\packages\ImageTools.0.3.1\lib\sl3-wp\ImageTools.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageTools.Filtering">
+      <HintPath>..\packages\ImageTools.0.3.1\lib\sl3-wp\ImageTools.Filtering.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageTools.IO.Bmp">
+      <HintPath>..\packages\ImageTools.0.3.1\lib\sl3-wp\ImageTools.IO.Bmp.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageTools.IO.Gif">
+      <HintPath>..\packages\ImageTools.0.3.1\lib\sl3-wp\ImageTools.IO.Gif.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageTools.IO.Png">
+      <HintPath>..\packages\ImageTools.0.3.1\lib\sl3-wp\ImageTools.IO.Png.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageTools.Utils">
+      <HintPath>..\packages\ImageTools.0.3.1\lib\sl3-wp\ImageTools.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="JeffWilcox.Maps">
+      <HintPath>..\packages\JeffWilcox.Maps.1.1\lib\sl4-windowsphone71\JeffWilcox.Maps.dll</HintPath>
+    </Reference>
+    <Reference Include="JeffWilcox.PhoneThemeManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\PhoneThemeManager.1.3.3\lib\sl4-windowsphone71\JeffWilcox.PhoneThemeManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions" />
+    <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls.Maps, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit">
+      <HintPath>..\packages\WPtoolkit.4.2012.10.30\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\MvvmLight.4.1.23.0\lib\sl4-windowsphone71\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\WTSDK\Properties\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NokiaMapSDK">
+      <HintPath>..\packages\NokiaMapSDK.1.0\lib\sl4-wp71\NokiaMapSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="PhoneCodeContractsAssemblies">
+      <HintPath>..\packages\ImageTools.0.3.1\lib\sl3-wp\PhoneCodeContractsAssemblies.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=3.8.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLight.4.1.23.0\lib\sl4-windowsphone71\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BillboardPushpin.xaml.cs">
+      <DependentUpon>BillboardPushpin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converter\DateToAgendaTopDisplayDateStringConverter.cs" />
+    <Compile Include="Converter\FavoriteNumberToVisibilityConverter.cs" />
+    <Compile Include="Converter\ReversedTextLengthToVisibilityConverter.cs" />
+    <Compile Include="CurrentPositionPushpin.xaml.cs">
+      <DependentUpon>CurrentPositionPushpin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IconPushpin.xaml.cs">
+      <DependentUpon>IconPushpin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\FlurryWP8SDK\EventName.cs" />
+    <Compile Include="Extensions\WTSDKExt\Supplemental\CalendarGroup.cs" />
+    <Compile Include="Pages\SignUpSuccess.xaml.cs">
+      <DependentUpon>SignUpSuccess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UpdatePassword.xaml.cs">
+      <DependentUpon>UpdatePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ImageViewer.xaml.cs">
+      <DependentUpon>ImageViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converter\DateTimeToAgendaDateStringConverter.cs" />
+    <Compile Include="Pages\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Business\Global.cs" />
+    <Compile Include="Converter\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converter\NumberToChineseNumberStringConverter.cs" />
+    <Compile Include="Converter\ReversedBoolToVisibilityConverter.cs" />
+    <Compile Include="Converter\StringIsIntToVisibilityConverter.cs" />
+    <Compile Include="Converter\TurnOverNumberConverter.cs" />
+    <Compile Include="Converter\IntToVisibilityConverter.cs" />
+    <Compile Include="Converter\TurnOverVisibilityConverter.cs" />
+    <Compile Include="DataBase\WTDataContext.cs" />
+    <Compile Include="DataBase\WTSettings.cs" />
+    <Compile Include="Extensions\GoogleMapsSDK\Address.cs" />
+    <Compile Include="Extensions\GoogleMapsSDK\AddressComponent.cs" />
+    <Compile Include="Extensions\GoogleMapsSDK\AddressComponentType.cs" />
+    <Compile Include="Extensions\GoogleMapsSDK\Geometry.cs" />
+    <Compile Include="Extensions\GoogleMapsSDK\GoogleMapsQueryClient.cs" />
+    <Compile Include="Extensions\GoogleMapsSDK\GoogleMapsQueryException.cs" />
+    <Compile Include="Extensions\GoogleMapsSDK\GoogleMapsReverseQueryRequest.cs" />
+    <Compile Include="Extensions\GoogleMapsSDK\GoogleMapsTile.cs" />
+    <Compile Include="Extensions\GoogleMapsSDK\IGoogleMapsQueryRequest.cs" />
+    <Compile Include="Extensions\GoogleMapsSDK\LatLng.cs" />
+    <Compile Include="Extensions\GoogleMapsSDK\LocationType.cs" />
+    <Compile Include="Extensions\GoogleMapsSDK\GoogleMapsQueryRequest.cs" />
+    <Compile Include="Extensions\GoogleMapsSDK\BoundingBox.cs" />
+    <Compile Include="Extensions\GoogleMapsSDK\GoogleMapsQueryResponse.cs" />
+    <Compile Include="Extensions\GoogleMapsSDK\Status.cs" />
+    <Compile Include="Extensions\WTSDKExt\DomainExt\ActivityExt.cs" />
+    <Compile Include="Extensions\WTSDKExt\DomainExt\AroundExt.cs" />
+    <Compile Include="Extensions\WTSDKExt\DomainExt\ChannelExt.cs" />
+    <Compile Include="Extensions\WTSDKExt\DomainExt\ClubNewsExt.cs" />
+    <Compile Include="Extensions\WTSDKExt\DomainExt\CourseExt.cs" />
+    <Compile Include="Extensions\WTSDKExt\DomainExt\ExamExt.cs" />
+    <Compile Include="Extensions\WTSDKExt\DomainExt\ForStaffExt.cs" />
+    <Compile Include="Extensions\WTSDKExt\DomainExt\ImageExt.cs" />
+    <Compile Include="Extensions\WTSDKExt\DomainExt\PersonExt.cs" />
+    <Compile Include="Extensions\WTSDKExt\DomainExt\SchoolNewsExt.cs" />
+    <Compile Include="Extensions\WTSDKExt\DomainExt\UserExt.cs" />
+    <Compile Include="Extensions\WTSDKExt\IWTObjectExt.cs" />
+    <Compile Include="Extensions\WTSDKExt\Supplemental\CalendarNode.cs" />
+    <Compile Include="Extensions\WTSDKExt\Supplemental\FavoriteObject.cs" />
+    <Compile Include="Extensions\WTSDKExt\Supplemental\ICampusInfo.cs" />
+    <Compile Include="Extensions\WTSDKExt\Supplemental\Semester.cs" />
+    <Compile Include="Pages\MySettings.xaml.cs">
+      <DependentUpon>MySettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MyAgenda.xaml.cs">
+      <DependentUpon>MyAgenda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CourseDetail.xaml.cs">
+      <DependentUpon>CourseDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditPersonalProfile.xaml.cs">
+      <DependentUpon>EditPersonalProfile.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Pages\MyFavorite.xaml.cs">
+      <DependentUpon>MyFavorite.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\NokiaMapsSDK\Address.cs" />
+    <Compile Include="Extensions\NokiaMapsSDK\Category.cs" />
+    <Compile Include="Extensions\NokiaMapsSDK\Context.cs" />
+    <Compile Include="Extensions\NokiaMapsSDK\Location.cs" />
+    <Compile Include="Extensions\NokiaMapsSDK\NokiaMapQueryClient.cs" />
+    <Compile Include="Extensions\NokiaMapsSDK\NokiaMapsTile.cs" />
+    <Compile Include="Extensions\NokiaMapsSDK\PaginateableCollection.cs" />
+    <Compile Include="Extensions\NokiaMapsSDK\Place.cs" />
+    <Compile Include="Extensions\NokiaMapsSDK\QueryRequest.cs" />
+    <Compile Include="Extensions\NokiaMapsSDK\QueryResponse.cs" />
+    <Compile Include="Extensions\NokiaMapsSDK\RelatedPlaces.cs" />
+    <Compile Include="Extensions\NokiaMapsSDK\Search.cs" />
+    <Compile Include="Extensions\NokiaMapsSDK\URN.cs" />
+    <Compile Include="Pages\MapAddress.xaml.cs">
+      <DependentUpon>MapAddress.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Pages\NearBy.xaml.cs">
+      <DependentUpon>NearBy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CampusInfo.xaml.cs">
+      <DependentUpon>CampusInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PersonalProfile.xaml.cs">
+      <DependentUpon>PersonalProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProgressBarPopup.cs" />
+    <Compile Include="Pages\SocietyNews.xaml.cs">
+      <DependentUpon>SocietyNews.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OfficialNote.xaml.cs">
+      <DependentUpon>OfficialNote.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ForgotPassword.xaml.cs">
+      <DependentUpon>ForgotPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Agreement.xaml.cs">
+      <DependentUpon>Agreement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Activity.xaml.cs">
+      <DependentUpon>Activity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PeopleOfWeek.xaml.cs">
+      <DependentUpon>PeopleOfWeek.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SignUp.xaml.cs">
+      <DependentUpon>SignUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TongjiMail.xaml.cs">
+      <DependentUpon>TongjiMail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PeopleOfWeekList.xaml.cs">
+      <DependentUpon>PeopleOfWeekList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TongjiNews.xaml.cs">
+      <DependentUpon>TongjiNews.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ViewOfficialWebsite.xaml.cs">
+      <DependentUpon>ViewOfficialWebsite.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StringLibrary.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StringLibrary.resx</DependentUpon>
+    </Compile>
+    <Compile Include="StringLibrary.zh-CN.Designer.cs">
+      <DependentUpon>StringLibrary.zh-CN.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Utility\AppVersion.cs" />
+    <Compile Include="Utility\DateTimeToAlarmPointerRotationDegree.cs" />
+    <Compile Include="Utility\DateTimeToChineseDate.cs" />
+    <Compile Include="Utility\DescriptionToInlineCollection.cs" />
+    <Compile Include="Utility\ImagePathToImageSource.cs" />
+    <Compile Include="Utility\LocalizedStrings.cs" />
+    <Compile Include="Utility\Unicode2String.cs" />
+    <Compile Include="Converter\TextLengthToVisibilityConverter.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WTToast.xaml.cs">
+      <DependentUpon>WTToast.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="BillboardPushpin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CurrentPositionPushpin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="IconPushpin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\SignUpSuccess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UpdatePassword.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ImageViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MySettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MyAgenda.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CourseDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\EditPersonalProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MyFavorite.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\MapAddress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\NearBy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CampusInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\PersonalProfile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\SocietyNews.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\OfficialNote.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ForgotPassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Agreement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Activity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PeopleOfWeek.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\SignUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TongjiMail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PeopleOfWeekList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TongjiNews.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ViewOfficialWebsite.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WTToast.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="icons\days_zh\10\Thumbs.db" />
+    <None Include="icons\days_zh\11\Thumbs.db" />
+    <None Include="icons\days_zh\12\Thumbs.db" />
+    <None Include="icons\days_zh\1\Thumbs.db" />
+    <None Include="icons\days_zh\2\Thumbs.db" />
+    <None Include="icons\days_zh\3\Thumbs.db" />
+    <None Include="icons\days_zh\4\Thumbs.db" />
+    <None Include="icons\days_zh\5\Thumbs.db" />
+    <None Include="icons\days_zh\6\Thumbs.db" />
+    <None Include="icons\days_zh\7\Thumbs.db" />
+    <None Include="icons\days_zh\8\Thumbs.db" />
+    <None Include="icons\days_zh\9\Thumbs.db" />
+    <None Include="icons\days_en\10\Thumbs.db" />
+    <None Include="icons\days_en\11\Thumbs.db" />
+    <None Include="icons\days_en\12\Thumbs.db" />
+    <None Include="icons\days_en\1\Thumbs.db" />
+    <None Include="icons\days_en\2\Thumbs.db" />
+    <None Include="icons\days_en\3\Thumbs.db" />
+    <None Include="icons\days_en\4\Thumbs.db" />
+    <None Include="icons\days_en\5\Thumbs.db" />
+    <None Include="icons\days_en\6\Thumbs.db" />
+    <None Include="icons\days_en\7\Thumbs.db" />
+    <None Include="icons\days_en\8\Thumbs.db" />
+    <None Include="icons\days_en\9\Thumbs.db" />
+    <None Include="packages.config" />
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icons\appbar.participate.rest.png" />
+    <Content Include="icons\appbar.person.list.rest.png" />
+    <Content Include="icons\appbar.register.rest.png" />
+    <Content Include="icons\appbar.unfavourite.rest.png" />
+    <Content Include="icons\appbar.unlike.rest.png" />
+    <Content Include="icons\appbar.unparticipate.rest.png" />
+    <Content Include="icons\appbar.like.rest.png" />
+    <Content Include="icons\days_en\10\10_1.png" />
+    <Content Include="icons\days_en\10\10_10.png" />
+    <Content Include="icons\days_en\10\10_11.png" />
+    <Content Include="icons\days_en\10\10_12.png" />
+    <Content Include="icons\days_en\10\10_13.png" />
+    <Content Include="icons\days_en\10\10_14.png" />
+    <Content Include="icons\days_en\10\10_15.png" />
+    <Content Include="icons\days_en\10\10_16.png" />
+    <Content Include="icons\days_en\10\10_17.png" />
+    <Content Include="icons\days_en\10\10_18.png" />
+    <Content Include="icons\days_en\10\10_19.png" />
+    <Content Include="icons\days_en\10\10_2.png" />
+    <Content Include="icons\days_en\10\10_20.png" />
+    <Content Include="icons\days_en\10\10_21.png" />
+    <Content Include="icons\days_en\10\10_22.png" />
+    <Content Include="icons\days_en\10\10_23.png" />
+    <Content Include="icons\days_en\10\10_24.png" />
+    <Content Include="icons\days_en\10\10_25.png" />
+    <Content Include="icons\days_en\10\10_26.png" />
+    <Content Include="icons\days_en\10\10_27.png" />
+    <Content Include="icons\days_en\10\10_28.png" />
+    <Content Include="icons\days_en\10\10_29.png" />
+    <Content Include="icons\days_en\10\10_3.png" />
+    <Content Include="icons\days_en\10\10_30.png" />
+    <Content Include="icons\days_en\10\10_31.png" />
+    <Content Include="icons\days_en\10\10_4.png" />
+    <Content Include="icons\days_en\10\10_5.png" />
+    <Content Include="icons\days_en\10\10_6.png" />
+    <Content Include="icons\days_en\10\10_7.png" />
+    <Content Include="icons\days_en\10\10_8.png" />
+    <Content Include="icons\days_en\10\10_9.png" />
+    <Content Include="icons\days_en\11\11_1.png" />
+    <Content Include="icons\days_en\11\11_10.png" />
+    <Content Include="icons\days_en\11\11_11.png" />
+    <Content Include="icons\days_en\11\11_12.png" />
+    <Content Include="icons\days_en\11\11_13.png" />
+    <Content Include="icons\days_en\11\11_14.png" />
+    <Content Include="icons\days_en\11\11_15.png" />
+    <Content Include="icons\days_en\11\11_16.png" />
+    <Content Include="icons\days_en\11\11_17.png" />
+    <Content Include="icons\days_en\11\11_18.png" />
+    <Content Include="icons\days_en\11\11_19.png" />
+    <Content Include="icons\days_en\11\11_2.png" />
+    <Content Include="icons\days_en\11\11_20.png" />
+    <Content Include="icons\days_en\11\11_21.png" />
+    <Content Include="icons\days_en\11\11_22.png" />
+    <Content Include="icons\days_en\11\11_23.png" />
+    <Content Include="icons\days_en\11\11_24.png" />
+    <Content Include="icons\days_en\11\11_25.png" />
+    <Content Include="icons\days_en\11\11_26.png" />
+    <Content Include="icons\days_en\11\11_27.png" />
+    <Content Include="icons\days_en\11\11_28.png" />
+    <Content Include="icons\days_en\11\11_29.png" />
+    <Content Include="icons\days_en\11\11_3.png" />
+    <Content Include="icons\days_en\11\11_30.png" />
+    <Content Include="icons\days_en\11\11_4.png" />
+    <Content Include="icons\days_en\11\11_5.png" />
+    <Content Include="icons\days_en\11\11_6.png" />
+    <Content Include="icons\days_en\11\11_7.png" />
+    <Content Include="icons\days_en\11\11_8.png" />
+    <Content Include="icons\days_en\11\11_9.png" />
+    <Content Include="icons\days_en\12\12_1.png" />
+    <Content Include="icons\days_en\12\12_10.png" />
+    <Content Include="icons\days_en\12\12_11.png" />
+    <Content Include="icons\days_en\12\12_12.png" />
+    <Content Include="icons\days_en\12\12_13.png" />
+    <Content Include="icons\days_en\12\12_14.png" />
+    <Content Include="icons\days_en\12\12_15.png" />
+    <Content Include="icons\days_en\12\12_16.png" />
+    <Content Include="icons\days_en\12\12_17.png" />
+    <Content Include="icons\days_en\12\12_18.png" />
+    <Content Include="icons\days_en\12\12_19.png" />
+    <Content Include="icons\days_en\12\12_2.png" />
+    <Content Include="icons\days_en\12\12_20.png" />
+    <Content Include="icons\days_en\12\12_21.png" />
+    <Content Include="icons\days_en\12\12_22.png" />
+    <Content Include="icons\days_en\12\12_23.png" />
+    <Content Include="icons\days_en\12\12_24.png" />
+    <Content Include="icons\days_en\12\12_25.png" />
+    <Content Include="icons\days_en\12\12_26.png" />
+    <Content Include="icons\days_en\12\12_27.png" />
+    <Content Include="icons\days_en\12\12_28.png" />
+    <Content Include="icons\days_en\12\12_29.png" />
+    <Content Include="icons\days_en\12\12_3.png" />
+    <Content Include="icons\days_en\12\12_30.png" />
+    <Content Include="icons\days_en\12\12_31.png" />
+    <Content Include="icons\days_en\12\12_4.png" />
+    <Content Include="icons\days_en\12\12_5.png" />
+    <Content Include="icons\days_en\12\12_6.png" />
+    <Content Include="icons\days_en\12\12_7.png" />
+    <Content Include="icons\days_en\12\12_8.png" />
+    <Content Include="icons\days_en\12\12_9.png" />
+    <Content Include="icons\days_en\1\1_1.png" />
+    <Content Include="icons\days_en\1\1_10.png" />
+    <Content Include="icons\days_en\1\1_11.png" />
+    <Content Include="icons\days_en\1\1_12.png" />
+    <Content Include="icons\days_en\1\1_13.png" />
+    <Content Include="icons\days_en\1\1_14.png" />
+    <Content Include="icons\days_en\1\1_15.png" />
+    <Content Include="icons\days_en\1\1_16.png" />
+    <Content Include="icons\days_en\1\1_17.png" />
+    <Content Include="icons\days_en\1\1_18.png" />
+    <Content Include="icons\days_en\1\1_19.png" />
+    <Content Include="icons\days_en\1\1_2.png" />
+    <Content Include="icons\days_en\1\1_20.png" />
+    <Content Include="icons\days_en\1\1_21.png" />
+    <Content Include="icons\days_en\1\1_22.png" />
+    <Content Include="icons\days_en\1\1_23.png" />
+    <Content Include="icons\days_en\1\1_24.png" />
+    <Content Include="icons\days_en\1\1_25.png" />
+    <Content Include="icons\days_en\1\1_26.png" />
+    <Content Include="icons\days_en\1\1_27.png" />
+    <Content Include="icons\days_en\1\1_28.png" />
+    <Content Include="icons\days_en\1\1_29.png" />
+    <Content Include="icons\days_en\1\1_3.png" />
+    <Content Include="icons\days_en\1\1_30.png" />
+    <Content Include="icons\days_en\1\1_31.png" />
+    <Content Include="icons\days_en\1\1_4.png" />
+    <Content Include="icons\days_en\1\1_5.png" />
+    <Content Include="icons\days_en\1\1_6.png" />
+    <Content Include="icons\days_en\1\1_7.png" />
+    <Content Include="icons\days_en\1\1_8.png" />
+    <Content Include="icons\days_en\1\1_9.png" />
+    <Content Include="icons\days_en\2\2_1.png" />
+    <Content Include="icons\days_en\2\2_10.png" />
+    <Content Include="icons\days_en\2\2_11.png" />
+    <Content Include="icons\days_en\2\2_12.png" />
+    <Content Include="icons\days_en\2\2_13.png" />
+    <Content Include="icons\days_en\2\2_14.png" />
+    <Content Include="icons\days_en\2\2_15.png" />
+    <Content Include="icons\days_en\2\2_16.png" />
+    <Content Include="icons\days_en\2\2_17.png" />
+    <Content Include="icons\days_en\2\2_18.png" />
+    <Content Include="icons\days_en\2\2_19.png" />
+    <Content Include="icons\days_en\2\2_2.png" />
+    <Content Include="icons\days_en\2\2_20.png" />
+    <Content Include="icons\days_en\2\2_21.png" />
+    <Content Include="icons\days_en\2\2_22.png" />
+    <Content Include="icons\days_en\2\2_23.png" />
+    <Content Include="icons\days_en\2\2_24.png" />
+    <Content Include="icons\days_en\2\2_25.png" />
+    <Content Include="icons\days_en\2\2_26.png" />
+    <Content Include="icons\days_en\2\2_27.png" />
+    <Content Include="icons\days_en\2\2_28.png" />
+    <Content Include="icons\days_en\2\2_29.png" />
+    <Content Include="icons\days_en\2\2_3.png" />
+    <Content Include="icons\days_en\2\2_4.png" />
+    <Content Include="icons\days_en\2\2_5.png" />
+    <Content Include="icons\days_en\2\2_6.png" />
+    <Content Include="icons\days_en\2\2_7.png" />
+    <Content Include="icons\days_en\2\2_8.png" />
+    <Content Include="icons\days_en\2\2_9.png" />
+    <Content Include="icons\days_en\3\3_1.png" />
+    <Content Include="icons\days_en\3\3_10.png" />
+    <Content Include="icons\days_en\3\3_11.png" />
+    <Content Include="icons\days_en\3\3_12.png" />
+    <Content Include="icons\days_en\3\3_13.png" />
+    <Content Include="icons\days_en\3\3_14.png" />
+    <Content Include="icons\days_en\3\3_15.png" />
+    <Content Include="icons\days_en\3\3_16.png" />
+    <Content Include="icons\days_en\3\3_17.png" />
+    <Content Include="icons\days_en\3\3_18.png" />
+    <Content Include="icons\days_en\3\3_19.png" />
+    <Content Include="icons\days_en\3\3_2.png" />
+    <Content Include="icons\days_en\3\3_20.png" />
+    <Content Include="icons\days_en\3\3_21.png" />
+    <Content Include="icons\days_en\3\3_22.png" />
+    <Content Include="icons\days_en\3\3_23.png" />
+    <Content Include="icons\days_en\3\3_24.png" />
+    <Content Include="icons\days_en\3\3_25.png" />
+    <Content Include="icons\days_en\3\3_26.png" />
+    <Content Include="icons\days_en\3\3_27.png" />
+    <Content Include="icons\days_en\3\3_28.png" />
+    <Content Include="icons\days_en\3\3_29.png" />
+    <Content Include="icons\days_en\3\3_3.png" />
+    <Content Include="icons\days_en\3\3_30.png" />
+    <Content Include="icons\days_en\3\3_31.png" />
+    <Content Include="icons\days_en\3\3_4.png" />
+    <Content Include="icons\days_en\3\3_5.png" />
+    <Content Include="icons\days_en\3\3_6.png" />
+    <Content Include="icons\days_en\3\3_7.png" />
+    <Content Include="icons\days_en\3\3_8.png" />
+    <Content Include="icons\days_en\3\3_9.png" />
+    <Content Include="icons\days_en\4\4_1.png" />
+    <Content Include="icons\days_en\4\4_10.png" />
+    <Content Include="icons\days_en\4\4_11.png" />
+    <Content Include="icons\days_en\4\4_12.png" />
+    <Content Include="icons\days_en\4\4_13.png" />
+    <Content Include="icons\days_en\4\4_14.png" />
+    <Content Include="icons\days_en\4\4_15.png" />
+    <Content Include="icons\days_en\4\4_16.png" />
+    <Content Include="icons\days_en\4\4_17.png" />
+    <Content Include="icons\days_en\4\4_18.png" />
+    <Content Include="icons\days_en\4\4_19.png" />
+    <Content Include="icons\days_en\4\4_2.png" />
+    <Content Include="icons\days_en\4\4_20.png" />
+    <Content Include="icons\days_en\4\4_21.png" />
+    <Content Include="icons\days_en\4\4_22.png" />
+    <Content Include="icons\days_en\4\4_23.png" />
+    <Content Include="icons\days_en\4\4_24.png" />
+    <Content Include="icons\days_en\4\4_25.png" />
+    <Content Include="icons\days_en\4\4_26.png" />
+    <Content Include="icons\days_en\4\4_27.png" />
+    <Content Include="icons\days_en\4\4_28.png" />
+    <Content Include="icons\days_en\4\4_29.png" />
+    <Content Include="icons\days_en\4\4_3.png" />
+    <Content Include="icons\days_en\4\4_30.png" />
+    <Content Include="icons\days_en\4\4_4.png" />
+    <Content Include="icons\days_en\4\4_5.png" />
+    <Content Include="icons\days_en\4\4_6.png" />
+    <Content Include="icons\days_en\4\4_7.png" />
+    <Content Include="icons\days_en\4\4_8.png" />
+    <Content Include="icons\days_en\4\4_9.png" />
+    <Content Include="icons\days_en\5\5_1.png" />
+    <Content Include="icons\days_en\5\5_10.png" />
+    <Content Include="icons\days_en\5\5_11.png" />
+    <Content Include="icons\days_en\5\5_12.png" />
+    <Content Include="icons\days_en\5\5_13.png" />
+    <Content Include="icons\days_en\5\5_14.png" />
+    <Content Include="icons\days_en\5\5_15.png" />
+    <Content Include="icons\days_en\5\5_16.png" />
+    <Content Include="icons\days_en\5\5_17.png" />
+    <Content Include="icons\days_en\5\5_18.png" />
+    <Content Include="icons\days_en\5\5_19.png" />
+    <Content Include="icons\days_en\5\5_2.png" />
+    <Content Include="icons\days_en\5\5_20.png" />
+    <Content Include="icons\days_en\5\5_21.png" />
+    <Content Include="icons\days_en\5\5_22.png" />
+    <Content Include="icons\days_en\5\5_23.png" />
+    <Content Include="icons\days_en\5\5_24.png" />
+    <Content Include="icons\days_en\5\5_25.png" />
+    <Content Include="icons\days_en\5\5_26.png" />
+    <Content Include="icons\days_en\5\5_27.png" />
+    <Content Include="icons\days_en\5\5_28.png" />
+    <Content Include="icons\days_en\5\5_29.png" />
+    <Content Include="icons\days_en\5\5_3.png" />
+    <Content Include="icons\days_en\5\5_30.png" />
+    <Content Include="icons\days_en\5\5_31.png" />
+    <Content Include="icons\days_en\5\5_4.png" />
+    <Content Include="icons\days_en\5\5_5.png" />
+    <Content Include="icons\days_en\5\5_6.png" />
+    <Content Include="icons\days_en\5\5_7.png" />
+    <Content Include="icons\days_en\5\5_8.png" />
+    <Content Include="icons\days_en\5\5_9.png" />
+    <Content Include="icons\days_en\6\6_1.png" />
+    <Content Include="icons\days_en\6\6_10.png" />
+    <Content Include="icons\days_en\6\6_11.png" />
+    <Content Include="icons\days_en\6\6_12.png" />
+    <Content Include="icons\days_en\6\6_13.png" />
+    <Content Include="icons\days_en\6\6_14.png" />
+    <Content Include="icons\days_en\6\6_15.png" />
+    <Content Include="icons\days_en\6\6_16.png" />
+    <Content Include="icons\days_en\6\6_17.png" />
+    <Content Include="icons\days_en\6\6_18.png" />
+    <Content Include="icons\days_en\6\6_19.png" />
+    <Content Include="icons\days_en\6\6_2.png" />
+    <Content Include="icons\days_en\6\6_20.png" />
+    <Content Include="icons\days_en\6\6_21.png" />
+    <Content Include="icons\days_en\6\6_22.png" />
+    <Content Include="icons\days_en\6\6_23.png" />
+    <Content Include="icons\days_en\6\6_24.png" />
+    <Content Include="icons\days_en\6\6_25.png" />
+    <Content Include="icons\days_en\6\6_26.png" />
+    <Content Include="icons\days_en\6\6_27.png" />
+    <Content Include="icons\days_en\6\6_28.png" />
+    <Content Include="icons\days_en\6\6_29.png" />
+    <Content Include="icons\days_en\6\6_3.png" />
+    <Content Include="icons\days_en\6\6_30.png" />
+    <Content Include="icons\days_en\6\6_4.png" />
+    <Content Include="icons\days_en\6\6_5.png" />
+    <Content Include="icons\days_en\6\6_6.png" />
+    <Content Include="icons\days_en\6\6_7.png" />
+    <Content Include="icons\days_en\6\6_8.png" />
+    <Content Include="icons\days_en\6\6_9.png" />
+    <Content Include="icons\days_en\7\7_1.png" />
+    <Content Include="icons\days_en\7\7_10.png" />
+    <Content Include="icons\days_en\7\7_11.png" />
+    <Content Include="icons\days_en\7\7_12.png" />
+    <Content Include="icons\days_en\7\7_13.png" />
+    <Content Include="icons\days_en\7\7_14.png" />
+    <Content Include="icons\days_en\7\7_15.png" />
+    <Content Include="icons\days_en\7\7_16.png" />
+    <Content Include="icons\days_en\7\7_17.png" />
+    <Content Include="icons\days_en\7\7_18.png" />
+    <Content Include="icons\days_en\7\7_19.png" />
+    <Content Include="icons\days_en\7\7_2.png" />
+    <Content Include="icons\days_en\7\7_20.png" />
+    <Content Include="icons\days_en\7\7_21.png" />
+    <Content Include="icons\days_en\7\7_22.png" />
+    <Content Include="icons\days_en\7\7_23.png" />
+    <Content Include="icons\days_en\7\7_24.png" />
+    <Content Include="icons\days_en\7\7_25.png" />
+    <Content Include="icons\days_en\7\7_26.png" />
+    <Content Include="icons\days_en\7\7_27.png" />
+    <Content Include="icons\days_en\7\7_28.png" />
+    <Content Include="icons\days_en\7\7_29.png" />
+    <Content Include="icons\days_en\7\7_3.png" />
+    <Content Include="icons\days_en\7\7_30.png" />
+    <Content Include="icons\days_en\7\7_31.png" />
+    <Content Include="icons\days_en\7\7_4.png" />
+    <Content Include="icons\days_en\7\7_5.png" />
+    <Content Include="icons\days_en\7\7_6.png" />
+    <Content Include="icons\days_en\7\7_7.png" />
+    <Content Include="icons\days_en\7\7_8.png" />
+    <Content Include="icons\days_en\7\7_9.png" />
+    <Content Include="icons\days_en\8\8_1.png" />
+    <Content Include="icons\days_en\8\8_10.png" />
+    <Content Include="icons\days_en\8\8_11.png" />
+    <Content Include="icons\days_en\8\8_12.png" />
+    <Content Include="icons\days_en\8\8_13.png" />
+    <Content Include="icons\days_en\8\8_14.png" />
+    <Content Include="icons\days_en\8\8_15.png" />
+    <Content Include="icons\days_en\8\8_16.png" />
+    <Content Include="icons\days_en\8\8_17.png" />
+    <Content Include="icons\days_en\8\8_18.png" />
+    <Content Include="icons\days_en\8\8_19.png" />
+    <Content Include="icons\days_en\8\8_2.png" />
+    <Content Include="icons\days_en\8\8_20.png" />
+    <Content Include="icons\days_en\8\8_21.png" />
+    <Content Include="icons\days_en\8\8_22.png" />
+    <Content Include="icons\days_en\8\8_23.png" />
+    <Content Include="icons\days_en\8\8_24.png" />
+    <Content Include="icons\days_en\8\8_25.png" />
+    <Content Include="icons\days_en\8\8_26.png" />
+    <Content Include="icons\days_en\8\8_27.png" />
+    <Content Include="icons\days_en\8\8_28.png" />
+    <Content Include="icons\days_en\8\8_29.png" />
+    <Content Include="icons\days_en\8\8_3.png" />
+    <Content Include="icons\days_en\8\8_30.png" />
+    <Content Include="icons\days_en\8\8_31.png" />
+    <Content Include="icons\days_en\8\8_4.png" />
+    <Content Include="icons\days_en\8\8_5.png" />
+    <Content Include="icons\days_en\8\8_6.png" />
+    <Content Include="icons\days_en\8\8_7.png" />
+    <Content Include="icons\days_en\8\8_8.png" />
+    <Content Include="icons\days_en\8\8_9.png" />
+    <Content Include="icons\days_en\9\9_1.png" />
+    <Content Include="icons\days_en\9\9_10.png" />
+    <Content Include="icons\days_en\9\9_11.png" />
+    <Content Include="icons\days_en\9\9_12.png" />
+    <Content Include="icons\days_en\9\9_13.png" />
+    <Content Include="icons\days_en\9\9_14.png" />
+    <Content Include="icons\days_en\9\9_15.png" />
+    <Content Include="icons\days_en\9\9_16.png" />
+    <Content Include="icons\days_en\9\9_17.png" />
+    <Content Include="icons\days_en\9\9_18.png" />
+    <Content Include="icons\days_en\9\9_19.png" />
+    <Content Include="icons\days_en\9\9_2.png" />
+    <Content Include="icons\days_en\9\9_20.png" />
+    <Content Include="icons\days_en\9\9_21.png" />
+    <Content Include="icons\days_en\9\9_22.png" />
+    <Content Include="icons\days_en\9\9_23.png" />
+    <Content Include="icons\days_en\9\9_24.png" />
+    <Content Include="icons\days_en\9\9_25.png" />
+    <Content Include="icons\days_en\9\9_26.png" />
+    <Content Include="icons\days_en\9\9_27.png" />
+    <Content Include="icons\days_en\9\9_28.png" />
+    <Content Include="icons\days_en\9\9_29.png" />
+    <Content Include="icons\days_en\9\9_3.png" />
+    <Content Include="icons\days_en\9\9_30.png" />
+    <Content Include="icons\days_en\9\9_4.png" />
+    <Content Include="icons\days_en\9\9_5.png" />
+    <Content Include="icons\days_en\9\9_6.png" />
+    <Content Include="icons\days_en\9\9_7.png" />
+    <Content Include="icons\days_en\9\9_8.png" />
+    <Content Include="icons\days_en\9\9_9.png" />
+    <Content Include="Images\CampusInfoFakeIllustration.png" />
+    <Content Include="Images\default_avatar_org.png" />
+    <Content Include="Images\default_avatar_profile.png" />
+    <Content Include="icon_173_173.png" />
+    <Content Include="icon_62_62.png" />
+    <Content Include="Microsoft.Phone.Maps.dll" />
+    <Content Include="README_FIRST.txt" />
+    <Content Include="SplashScreenImage.jpg" />
+    <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Delete.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Select.png" />
+    <Resource Include="Images\Common\favourite_icon.png" />
+    <Resource Include="Pages\favourite_icon.png" />
+    <Content Include="icons\appbar.cancel.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\appbar.check.rest.png" />
+    <Content Include="icons\appbar.edit.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\appbar.favs.rest.png" />
+    <Content Include="icons\appbar.refresh.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\appbar.save.rest.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\days_zh\10\10_1.png" />
+    <Content Include="icons\days_zh\10\10_10.png" />
+    <Content Include="icons\days_zh\10\10_11.png" />
+    <Content Include="icons\days_zh\10\10_12.png" />
+    <Content Include="icons\days_zh\10\10_13.png" />
+    <Content Include="icons\days_zh\10\10_14.png" />
+    <Content Include="icons\days_zh\10\10_15.png" />
+    <Content Include="icons\days_zh\10\10_16.png" />
+    <Content Include="icons\days_zh\10\10_17.png" />
+    <Content Include="icons\days_zh\10\10_18.png" />
+    <Content Include="icons\days_zh\10\10_19.png" />
+    <Content Include="icons\days_zh\10\10_2.png" />
+    <Content Include="icons\days_zh\10\10_20.png" />
+    <Content Include="icons\days_zh\10\10_21.png" />
+    <Content Include="icons\days_zh\10\10_22.png" />
+    <Content Include="icons\days_zh\10\10_23.png" />
+    <Content Include="icons\days_zh\10\10_24.png" />
+    <Content Include="icons\days_zh\10\10_25.png" />
+    <Content Include="icons\days_zh\10\10_26.png" />
+    <Content Include="icons\days_zh\10\10_27.png" />
+    <Content Include="icons\days_zh\10\10_28.png" />
+    <Content Include="icons\days_zh\10\10_29.png" />
+    <Content Include="icons\days_zh\10\10_3.png" />
+    <Content Include="icons\days_zh\10\10_30.png" />
+    <Content Include="icons\days_zh\10\10_31.png" />
+    <Content Include="icons\days_zh\10\10_4.png" />
+    <Content Include="icons\days_zh\10\10_5.png" />
+    <Content Include="icons\days_zh\10\10_6.png" />
+    <Content Include="icons\days_zh\10\10_7.png" />
+    <Content Include="icons\days_zh\10\10_8.png" />
+    <Content Include="icons\days_zh\10\10_9.png" />
+    <Content Include="icons\days_zh\11\11_1.png" />
+    <Content Include="icons\days_zh\11\11_10.png" />
+    <Content Include="icons\days_zh\11\11_11.png" />
+    <Content Include="icons\days_zh\11\11_12.png" />
+    <Content Include="icons\days_zh\11\11_13.png" />
+    <Content Include="icons\days_zh\11\11_14.png" />
+    <Content Include="icons\days_zh\11\11_15.png" />
+    <Content Include="icons\days_zh\11\11_16.png" />
+    <Content Include="icons\days_zh\11\11_17.png" />
+    <Content Include="icons\days_zh\11\11_18.png" />
+    <Content Include="icons\days_zh\11\11_19.png" />
+    <Content Include="icons\days_zh\11\11_2.png" />
+    <Content Include="icons\days_zh\11\11_20.png" />
+    <Content Include="icons\days_zh\11\11_21.png" />
+    <Content Include="icons\days_zh\11\11_22.png" />
+    <Content Include="icons\days_zh\11\11_23.png" />
+    <Content Include="icons\days_zh\11\11_24.png" />
+    <Content Include="icons\days_zh\11\11_25.png" />
+    <Content Include="icons\days_zh\11\11_26.png" />
+    <Content Include="icons\days_zh\11\11_27.png" />
+    <Content Include="icons\days_zh\11\11_28.png" />
+    <Content Include="icons\days_zh\11\11_29.png" />
+    <Content Include="icons\days_zh\11\11_3.png" />
+    <Content Include="icons\days_zh\11\11_30.png" />
+    <Content Include="icons\days_zh\11\11_4.png" />
+    <Content Include="icons\days_zh\11\11_5.png" />
+    <Content Include="icons\days_zh\11\11_6.png" />
+    <Content Include="icons\days_zh\11\11_7.png" />
+    <Content Include="icons\days_zh\11\11_8.png" />
+    <Content Include="icons\days_zh\11\11_9.png" />
+    <Content Include="icons\days_zh\12\12_1.png" />
+    <Content Include="icons\days_zh\12\12_10.png" />
+    <Content Include="icons\days_zh\12\12_11.png" />
+    <Content Include="icons\days_zh\12\12_12.png" />
+    <Content Include="icons\days_zh\12\12_13.png" />
+    <Content Include="icons\days_zh\12\12_14.png" />
+    <Content Include="icons\days_zh\12\12_15.png" />
+    <Content Include="icons\days_zh\12\12_16.png" />
+    <Content Include="icons\days_zh\12\12_17.png" />
+    <Content Include="icons\days_zh\12\12_18.png" />
+    <Content Include="icons\days_zh\12\12_19.png" />
+    <Content Include="icons\days_zh\12\12_2.png" />
+    <Content Include="icons\days_zh\12\12_20.png" />
+    <Content Include="icons\days_zh\12\12_21.png" />
+    <Content Include="icons\days_zh\12\12_22.png" />
+    <Content Include="icons\days_zh\12\12_23.png" />
+    <Content Include="icons\days_zh\12\12_24.png" />
+    <Content Include="icons\days_zh\12\12_25.png" />
+    <Content Include="icons\days_zh\12\12_26.png" />
+    <Content Include="icons\days_zh\12\12_27.png" />
+    <Content Include="icons\days_zh\12\12_28.png" />
+    <Content Include="icons\days_zh\12\12_29.png" />
+    <Content Include="icons\days_zh\12\12_3.png" />
+    <Content Include="icons\days_zh\12\12_30.png" />
+    <Content Include="icons\days_zh\12\12_31.png" />
+    <Content Include="icons\days_zh\12\12_4.png" />
+    <Content Include="icons\days_zh\12\12_5.png" />
+    <Content Include="icons\days_zh\12\12_6.png" />
+    <Content Include="icons\days_zh\12\12_7.png" />
+    <Content Include="icons\days_zh\12\12_8.png" />
+    <Content Include="icons\days_zh\12\12_9.png" />
+    <Content Include="icons\days_zh\1\1_1.png" />
+    <Content Include="icons\days_zh\1\1_10.png" />
+    <Content Include="icons\days_zh\1\1_11.png" />
+    <Content Include="icons\days_zh\1\1_12.png" />
+    <Content Include="icons\days_zh\1\1_13.png" />
+    <Content Include="icons\days_zh\1\1_14.png" />
+    <Content Include="icons\days_zh\1\1_15.png" />
+    <Content Include="icons\days_zh\1\1_16.png" />
+    <Content Include="icons\days_zh\1\1_17.png" />
+    <Content Include="icons\days_zh\1\1_18.png" />
+    <Content Include="icons\days_zh\1\1_19.png" />
+    <Content Include="icons\days_zh\1\1_2.png" />
+    <Content Include="icons\days_zh\1\1_20.png" />
+    <Content Include="icons\days_zh\1\1_21.png" />
+    <Content Include="icons\days_zh\1\1_22.png" />
+    <Content Include="icons\days_zh\1\1_23.png" />
+    <Content Include="icons\days_zh\1\1_24.png" />
+    <Content Include="icons\days_zh\1\1_25.png" />
+    <Content Include="icons\days_zh\1\1_26.png" />
+    <Content Include="icons\days_zh\1\1_27.png" />
+    <Content Include="icons\days_zh\1\1_28.png" />
+    <Content Include="icons\days_zh\1\1_29.png" />
+    <Content Include="icons\days_zh\1\1_3.png" />
+    <Content Include="icons\days_zh\1\1_30.png" />
+    <Content Include="icons\days_zh\1\1_31.png" />
+    <Content Include="icons\days_zh\1\1_4.png" />
+    <Content Include="icons\days_zh\1\1_5.png" />
+    <Content Include="icons\days_zh\1\1_6.png" />
+    <Content Include="icons\days_zh\1\1_7.png" />
+    <Content Include="icons\days_zh\1\1_8.png" />
+    <Content Include="icons\days_zh\1\1_9.png" />
+    <Content Include="icons\days_zh\2\2_1.png" />
+    <Content Include="icons\days_zh\2\2_10.png" />
+    <Content Include="icons\days_zh\2\2_11.png" />
+    <Content Include="icons\days_zh\2\2_12.png" />
+    <Content Include="icons\days_zh\2\2_13.png" />
+    <Content Include="icons\days_zh\2\2_14.png" />
+    <Content Include="icons\days_zh\2\2_15.png" />
+    <Content Include="icons\days_zh\2\2_16.png" />
+    <Content Include="icons\days_zh\2\2_17.png" />
+    <Content Include="icons\days_zh\2\2_18.png" />
+    <Content Include="icons\days_zh\2\2_19.png" />
+    <Content Include="icons\days_zh\2\2_2.png" />
+    <Content Include="icons\days_zh\2\2_20.png" />
+    <Content Include="icons\days_zh\2\2_21.png" />
+    <Content Include="icons\days_zh\2\2_22.png" />
+    <Content Include="icons\days_zh\2\2_23.png" />
+    <Content Include="icons\days_zh\2\2_24.png" />
+    <Content Include="icons\days_zh\2\2_25.png" />
+    <Content Include="icons\days_zh\2\2_26.png" />
+    <Content Include="icons\days_zh\2\2_27.png" />
+    <Content Include="icons\days_zh\2\2_28.png" />
+    <Content Include="icons\days_zh\2\2_29.png" />
+    <Content Include="icons\days_zh\2\2_3.png" />
+    <Content Include="icons\days_zh\2\2_4.png" />
+    <Content Include="icons\days_zh\2\2_5.png" />
+    <Content Include="icons\days_zh\2\2_6.png" />
+    <Content Include="icons\days_zh\2\2_7.png" />
+    <Content Include="icons\days_zh\2\2_8.png" />
+    <Content Include="icons\days_zh\2\2_9.png" />
+    <Content Include="icons\days_zh\3\3_1.png" />
+    <Content Include="icons\days_zh\3\3_10.png" />
+    <Content Include="icons\days_zh\3\3_11.png" />
+    <Content Include="icons\days_zh\3\3_12.png" />
+    <Content Include="icons\days_zh\3\3_13.png" />
+    <Content Include="icons\days_zh\3\3_14.png" />
+    <Content Include="icons\days_zh\3\3_15.png" />
+    <Content Include="icons\days_zh\3\3_16.png" />
+    <Content Include="icons\days_zh\3\3_17.png" />
+    <Content Include="icons\days_zh\3\3_18.png" />
+    <Content Include="icons\days_zh\3\3_19.png" />
+    <Content Include="icons\days_zh\3\3_2.png" />
+    <Content Include="icons\days_zh\3\3_20.png" />
+    <Content Include="icons\days_zh\3\3_21.png" />
+    <Content Include="icons\days_zh\3\3_22.png" />
+    <Content Include="icons\days_zh\3\3_23.png" />
+    <Content Include="icons\days_zh\3\3_24.png" />
+    <Content Include="icons\days_zh\3\3_25.png" />
+    <Content Include="icons\days_zh\3\3_26.png" />
+    <Content Include="icons\days_zh\3\3_27.png" />
+    <Content Include="icons\days_zh\3\3_28.png" />
+    <Content Include="icons\days_zh\3\3_29.png" />
+    <Content Include="icons\days_zh\3\3_3.png" />
+    <Content Include="icons\days_zh\3\3_30.png" />
+    <Content Include="icons\days_zh\3\3_31.png" />
+    <Content Include="icons\days_zh\3\3_4.png" />
+    <Content Include="icons\days_zh\3\3_5.png" />
+    <Content Include="icons\days_zh\3\3_6.png" />
+    <Content Include="icons\days_zh\3\3_7.png" />
+    <Content Include="icons\days_zh\3\3_8.png" />
+    <Content Include="icons\days_zh\3\3_9.png" />
+    <Content Include="icons\days_zh\4\4_1.png" />
+    <Content Include="icons\days_zh\4\4_10.png" />
+    <Content Include="icons\days_zh\4\4_11.png" />
+    <Content Include="icons\days_zh\4\4_12.png" />
+    <Content Include="icons\days_zh\4\4_13.png" />
+    <Content Include="icons\days_zh\4\4_14.png" />
+    <Content Include="icons\days_zh\4\4_15.png" />
+    <Content Include="icons\days_zh\4\4_16.png" />
+    <Content Include="icons\days_zh\4\4_17.png" />
+    <Content Include="icons\days_zh\4\4_18.png" />
+    <Content Include="icons\days_zh\4\4_19.png" />
+    <Content Include="icons\days_zh\4\4_2.png" />
+    <Content Include="icons\days_zh\4\4_20.png" />
+    <Content Include="icons\days_zh\4\4_21.png" />
+    <Content Include="icons\days_zh\4\4_22.png" />
+    <Content Include="icons\days_zh\4\4_23.png" />
+    <Content Include="icons\days_zh\4\4_24.png" />
+    <Content Include="icons\days_zh\4\4_25.png" />
+    <Content Include="icons\days_zh\4\4_26.png" />
+    <Content Include="icons\days_zh\4\4_27.png" />
+    <Content Include="icons\days_zh\4\4_28.png" />
+    <Content Include="icons\days_zh\4\4_29.png" />
+    <Content Include="icons\days_zh\4\4_3.png" />
+    <Content Include="icons\days_zh\4\4_30.png" />
+    <Content Include="icons\days_zh\4\4_4.png" />
+    <Content Include="icons\days_zh\4\4_5.png" />
+    <Content Include="icons\days_zh\4\4_6.png" />
+    <Content Include="icons\days_zh\4\4_7.png" />
+    <Content Include="icons\days_zh\4\4_8.png" />
+    <Content Include="icons\days_zh\4\4_9.png" />
+    <Content Include="icons\days_zh\5\5_1.png" />
+    <Content Include="icons\days_zh\5\5_10.png" />
+    <Content Include="icons\days_zh\5\5_11.png" />
+    <Content Include="icons\days_zh\5\5_12.png" />
+    <Content Include="icons\days_zh\5\5_13.png" />
+    <Content Include="icons\days_zh\5\5_14.png" />
+    <Content Include="icons\days_zh\5\5_15.png" />
+    <Content Include="icons\days_zh\5\5_16.png" />
+    <Content Include="icons\days_zh\5\5_17.png" />
+    <Content Include="icons\days_zh\5\5_18.png" />
+    <Content Include="icons\days_zh\5\5_19.png" />
+    <Content Include="icons\days_zh\5\5_2.png" />
+    <Content Include="icons\days_zh\5\5_20.png" />
+    <Content Include="icons\days_zh\5\5_21.png" />
+    <Content Include="icons\days_zh\5\5_22.png" />
+    <Content Include="icons\days_zh\5\5_23.png" />
+    <Content Include="icons\days_zh\5\5_24.png" />
+    <Content Include="icons\days_zh\5\5_25.png" />
+    <Content Include="icons\days_zh\5\5_26.png" />
+    <Content Include="icons\days_zh\5\5_27.png" />
+    <Content Include="icons\days_zh\5\5_28.png" />
+    <Content Include="icons\days_zh\5\5_29.png" />
+    <Content Include="icons\days_zh\5\5_3.png" />
+    <Content Include="icons\days_zh\5\5_30.png" />
+    <Content Include="icons\days_zh\5\5_31.png" />
+    <Content Include="icons\days_zh\5\5_4.png" />
+    <Content Include="icons\days_zh\5\5_5.png" />
+    <Content Include="icons\days_zh\5\5_6.png" />
+    <Content Include="icons\days_zh\5\5_7.png" />
+    <Content Include="icons\days_zh\5\5_8.png" />
+    <Content Include="icons\days_zh\5\5_9.png" />
+    <Content Include="icons\days_zh\6\6_1.png" />
+    <Content Include="icons\days_zh\6\6_10.png" />
+    <Content Include="icons\days_zh\6\6_11.png" />
+    <Content Include="icons\days_zh\6\6_12.png" />
+    <Content Include="icons\days_zh\6\6_13.png" />
+    <Content Include="icons\days_zh\6\6_14.png" />
+    <Content Include="icons\days_zh\6\6_15.png" />
+    <Content Include="icons\days_zh\6\6_16.png" />
+    <Content Include="icons\days_zh\6\6_17.png" />
+    <Content Include="icons\days_zh\6\6_18.png" />
+    <Content Include="icons\days_zh\6\6_19.png" />
+    <Content Include="icons\days_zh\6\6_2.png" />
+    <Content Include="icons\days_zh\6\6_20.png" />
+    <Content Include="icons\days_zh\6\6_21.png" />
+    <Content Include="icons\days_zh\6\6_22.png" />
+    <Content Include="icons\days_zh\6\6_23.png" />
+    <Content Include="icons\days_zh\6\6_24.png" />
+    <Content Include="icons\days_zh\6\6_25.png" />
+    <Content Include="icons\days_zh\6\6_26.png" />
+    <Content Include="icons\days_zh\6\6_27.png" />
+    <Content Include="icons\days_zh\6\6_28.png" />
+    <Content Include="icons\days_zh\6\6_29.png" />
+    <Content Include="icons\days_zh\6\6_3.png" />
+    <Content Include="icons\days_zh\6\6_30.png" />
+    <Content Include="icons\days_zh\6\6_4.png" />
+    <Content Include="icons\days_zh\6\6_5.png" />
+    <Content Include="icons\days_zh\6\6_6.png" />
+    <Content Include="icons\days_zh\6\6_7.png" />
+    <Content Include="icons\days_zh\6\6_8.png" />
+    <Content Include="icons\days_zh\6\6_9.png" />
+    <Content Include="icons\days_zh\7\7_1.png" />
+    <Content Include="icons\days_zh\7\7_10.png" />
+    <Content Include="icons\days_zh\7\7_11.png" />
+    <Content Include="icons\days_zh\7\7_12.png" />
+    <Content Include="icons\days_zh\7\7_13.png" />
+    <Content Include="icons\days_zh\7\7_14.png" />
+    <Content Include="icons\days_zh\7\7_15.png" />
+    <Content Include="icons\days_zh\7\7_16.png" />
+    <Content Include="icons\days_zh\7\7_17.png" />
+    <Content Include="icons\days_zh\7\7_18.png" />
+    <Content Include="icons\days_zh\7\7_19.png" />
+    <Content Include="icons\days_zh\7\7_2.png" />
+    <Content Include="icons\days_zh\7\7_20.png" />
+    <Content Include="icons\days_zh\7\7_21.png" />
+    <Content Include="icons\days_zh\7\7_22.png" />
+    <Content Include="icons\days_zh\7\7_23.png" />
+    <Content Include="icons\days_zh\7\7_24.png" />
+    <Content Include="icons\days_zh\7\7_25.png" />
+    <Content Include="icons\days_zh\7\7_26.png" />
+    <Content Include="icons\days_zh\7\7_27.png" />
+    <Content Include="icons\days_zh\7\7_28.png" />
+    <Content Include="icons\days_zh\7\7_29.png" />
+    <Content Include="icons\days_zh\7\7_3.png" />
+    <Content Include="icons\days_zh\7\7_30.png" />
+    <Content Include="icons\days_zh\7\7_31.png" />
+    <Content Include="icons\days_zh\7\7_4.png" />
+    <Content Include="icons\days_zh\7\7_5.png" />
+    <Content Include="icons\days_zh\7\7_6.png" />
+    <Content Include="icons\days_zh\7\7_7.png" />
+    <Content Include="icons\days_zh\7\7_8.png" />
+    <Content Include="icons\days_zh\7\7_9.png" />
+    <Content Include="icons\days_zh\8\8_1.png" />
+    <Content Include="icons\days_zh\8\8_10.png" />
+    <Content Include="icons\days_zh\8\8_11.png" />
+    <Content Include="icons\days_zh\8\8_12.png" />
+    <Content Include="icons\days_zh\8\8_13.png" />
+    <Content Include="icons\days_zh\8\8_14.png" />
+    <Content Include="icons\days_zh\8\8_15.png" />
+    <Content Include="icons\days_zh\8\8_16.png" />
+    <Content Include="icons\days_zh\8\8_17.png" />
+    <Content Include="icons\days_zh\8\8_18.png" />
+    <Content Include="icons\days_zh\8\8_19.png" />
+    <Content Include="icons\days_zh\8\8_2.png" />
+    <Content Include="icons\days_zh\8\8_20.png" />
+    <Content Include="icons\days_zh\8\8_21.png" />
+    <Content Include="icons\days_zh\8\8_22.png" />
+    <Content Include="icons\days_zh\8\8_23.png" />
+    <Content Include="icons\days_zh\8\8_24.png" />
+    <Content Include="icons\days_zh\8\8_25.png" />
+    <Content Include="icons\days_zh\8\8_26.png" />
+    <Content Include="icons\days_zh\8\8_27.png" />
+    <Content Include="icons\days_zh\8\8_28.png" />
+    <Content Include="icons\days_zh\8\8_29.png" />
+    <Content Include="icons\days_zh\8\8_3.png" />
+    <Content Include="icons\days_zh\8\8_30.png" />
+    <Content Include="icons\days_zh\8\8_31.png" />
+    <Content Include="icons\days_zh\8\8_4.png" />
+    <Content Include="icons\days_zh\8\8_5.png" />
+    <Content Include="icons\days_zh\8\8_6.png" />
+    <Content Include="icons\days_zh\8\8_7.png" />
+    <Content Include="icons\days_zh\8\8_8.png" />
+    <Content Include="icons\days_zh\8\8_9.png" />
+    <Content Include="icons\days_zh\9\9_1.png" />
+    <Content Include="icons\days_zh\9\9_10.png" />
+    <Content Include="icons\days_zh\9\9_11.png" />
+    <Content Include="icons\days_zh\9\9_12.png" />
+    <Content Include="icons\days_zh\9\9_13.png" />
+    <Content Include="icons\days_zh\9\9_14.png" />
+    <Content Include="icons\days_zh\9\9_15.png" />
+    <Content Include="icons\days_zh\9\9_16.png" />
+    <Content Include="icons\days_zh\9\9_17.png" />
+    <Content Include="icons\days_zh\9\9_18.png" />
+    <Content Include="icons\days_zh\9\9_19.png" />
+    <Content Include="icons\days_zh\9\9_2.png" />
+    <Content Include="icons\days_zh\9\9_20.png" />
+    <Content Include="icons\days_zh\9\9_21.png" />
+    <Content Include="icons\days_zh\9\9_22.png" />
+    <Content Include="icons\days_zh\9\9_23.png" />
+    <Content Include="icons\days_zh\9\9_24.png" />
+    <Content Include="icons\days_zh\9\9_25.png" />
+    <Content Include="icons\days_zh\9\9_26.png" />
+    <Content Include="icons\days_zh\9\9_27.png" />
+    <Content Include="icons\days_zh\9\9_28.png" />
+    <Content Include="icons\days_zh\9\9_29.png" />
+    <Content Include="icons\days_zh\9\9_3.png" />
+    <Content Include="icons\days_zh\9\9_30.png" />
+    <Content Include="icons\days_zh\9\9_4.png" />
+    <Content Include="icons\days_zh\9\9_5.png" />
+    <Content Include="icons\days_zh\9\9_6.png" />
+    <Content Include="icons\days_zh\9\9_7.png" />
+    <Content Include="icons\days_zh\9\9_8.png" />
+    <Content Include="icons\days_zh\9\9_9.png" />
+    <Content Include="icons\DefaultBuildingIcon.png" />
+    <Content Include="Images\Common\location_icon.png" />
+    <Content Include="Images\Common\time_icon.png" />
+    <Content Include="Pages\BaseMapTile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TileBrush\WTCustomControls.csproj">
+      <Project>{540BC70B-8CCA-40D0-BB56-F19497AB3889}</Project>
+      <Name>WTCustomControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WTSDK\WTSDK.csproj">
+      <Project>{E43F9E0F-59D1-4BF2-8B1B-E1CF10F9792E}</Project>
+      <Name>WTSDK</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="StringLibrary.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringLibrary.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StringLibrary.zh-CN.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringLibrary.zh-CN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+</Project>
