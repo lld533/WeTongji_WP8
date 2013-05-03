@@ -92,6 +92,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DH.Scrypt">
+      <HintPath>..\..\..\..\Desktop\DH.Scrypt.dll</HintPath>
+    </Reference>
     <Reference Include="MyToolkit">
       <HintPath>..\packages\MyToolkit.1.13.0\lib\sl4-wp71\MyToolkit.dll</HintPath>
     </Reference>
@@ -125,10 +128,38 @@
     <Compile Include="Api\Api.Request\Around\AroundReadRequest.cs" />
     <Compile Include="Api\Api.Request\Around\AroundUnFavoriteRequest.cs" />
     <Compile Include="Api\Api.Request\Around\AroundUnLikeRequest.cs" />
+    <Compile Include="Api\Api.Request\Information\InformationFavoriteRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Api\Api.Request\Information\InformationGetListRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Api\Api.Request\Information\InformationGetRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Api\Api.Request\Information\InformationLikeRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Api\Api.Request\Information\InformationReadRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Api\Api.Request\Information\InformationUnFavoriteRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Api\Api.Request\Information\InformationUnLikeRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Api\Api.Request\IWTUploadFileRequest.cs" />
     <Compile Include="Api\Api.Request\User\UserProfileRequest.cs" />
     <Compile Include="Api\Api.Request\User\UserUpdateProfileRequest.cs" />
+    <Compile Include="Api\Api.Response\Information\InformationGetListResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Api\Api.Response\Information\InformationGetResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Api\Api.Response\User\UserProfileResponse.cs" />
+    <Compile Include="Api\Api.Util\RSAEncryptHelper.cs" />
     <Compile Include="Api\WTDownloadImageClient.cs" />
     <Compile Include="Api\Api.Request\Person\PersonFavoriteRequest.cs" />
     <Compile Include="Api\Api.Request\Person\PeopleGetRequest.cs" />
@@ -186,7 +217,6 @@
     <Compile Include="Api\Api.Response\User\UserUpdatePasswordResponse.cs" />
     <Compile Include="Api\Api.Response\Version\SystemVersionResponse.cs" />
     <Compile Include="Api\Api.Util\FileItem.cs" />
-    <Compile Include="Api\Api.Util\MD5.cs" />
     <Compile Include="Api\Api.Util\SortEnumerator.cs" />
     <Compile Include="Api\Api.Util\Status.cs" />
     <Compile Include="Api\WTDefaultClient.cs" />
@@ -202,6 +232,9 @@
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
+    <EmbeddedResource Include="public_key.der">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

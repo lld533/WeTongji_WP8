@@ -16,7 +16,7 @@ namespace WeTongji.Api
 {
     public class WTDefaultClient<T> where T : WTResponse
     {
-        #region [Const Strings]
+        #region [Readonly Strings]
 
         public static readonly String METHOD = "M";
         public static readonly String HASH = "H";
@@ -25,6 +25,11 @@ namespace WeTongji.Api
         public static readonly String PAGE = "P";
         public static readonly String VERSION = "V";
         public static readonly String SESSION = "S";
+
+        public static readonly String CURRENT_DEVICE = "WP7";
+        public static readonly String CURRENT_VERSION = "3.0";
+
+        public static readonly String SERVER = "http://we.tongji.edu.cn/api/call?";
 
         #endregion
 
@@ -82,9 +87,8 @@ namespace WeTongji.Api
 
             var dict = new Dictionary<String, String>(request.GetParameters());
             dict[METHOD] = request.GetApiName();
-            dict[DEVICE] = "WP7";
-            dict[VERSION] = "1.0";
-            dict[HASH] = ComputeHash(dict);
+            dict[DEVICE] = CURRENT_DEVICE;
+            dict[VERSION] = CURRENT_VERSION;
 
             #endregion
 
@@ -169,11 +173,10 @@ namespace WeTongji.Api
 
             var dict = new Dictionary<String, String>(request.GetParameters());
             dict[METHOD] = request.GetApiName();
-            dict[DEVICE] = "WP7";
-            dict[VERSION] = "1.0";
+            dict[DEVICE] = CURRENT_DEVICE;
+            dict[VERSION] = CURRENT_VERSION;
             dict[SESSION] = session;
             dict[UID] = uid;
-            dict[HASH] = ComputeHash(dict);
 
             #endregion
 
@@ -228,11 +231,10 @@ namespace WeTongji.Api
 
             var dict = new Dictionary<String, String>(request.GetParameters());
             dict[METHOD] = request.GetApiName();
-            dict[DEVICE] = "WP7";
-            dict[VERSION] = "1.0";
+            dict[DEVICE] = CURRENT_DEVICE;
+            dict[VERSION] = CURRENT_VERSION;
             dict[SESSION] = session;
             dict[UID] = uid;
-            dict[HASH] = ComputeHash(dict);
 
             #endregion
 
@@ -354,11 +356,10 @@ namespace WeTongji.Api
 
             var dict = new Dictionary<String, String>(request.GetParameters());
             dict[METHOD] = request.GetApiName();
-            dict[DEVICE] = "WP7";
-            dict[VERSION] = "1.0";
+            dict[DEVICE] = CURRENT_DEVICE;
+            dict[VERSION] = CURRENT_VERSION;
             dict[SESSION] = session;
             dict[UID] = uid;
-            dict[HASH] = ComputeHash(dict);
 
             #endregion
 
@@ -395,37 +396,13 @@ namespace WeTongji.Api
 
         #endregion
 
-        #region [Public Functions]
-
-        public void SetSystemParameters(IDictionary<String, String> systemParameters) { }
-        public void SetWTLogger(IWTLogger wtLogger) { }
-
-        #endregion
-
         #region [Private Functions]
-
-        private String ComputeHash(IDictionary<String, String> dict)
-        {
-            if (dict == null)
-                throw new ArgumentNullException("dict");
-
-            StringBuilder sb = new StringBuilder();
-            var sort = dict.OrderBy(pair => pair.Key, new StringComparer()).ToArray();
-            foreach (var pair in sort)
-            {
-                sb.AppendFormat("{0}={1}&", pair.Key, HttpUtility.UrlEncode(pair.Value));
-            }
-
-            var strToMd5 = sb.ToString().Substring(0, sb.Length - 1);
-
-            return WeTongji.Api.Util.MD5Core.GetHashString(strToMd5).ToLower();
-        }
 
         private String Dictionary2Url(IDictionary<String, String> dict)
         {
             if (dict == null)
                 throw new ArgumentNullException("null");
-            StringBuilder sb = new StringBuilder("http://we.tongji.edu.cn/api/call?");
+            StringBuilder sb = new StringBuilder(SERVER);
 
             foreach (var pair in dict)
             {
@@ -433,27 +410,6 @@ namespace WeTongji.Api
             }
             sb.Remove(sb.Length - 1, 1);
             return sb.ToString();
-        }
-
-        #endregion
-
-        #region [String Comparer]
-
-        public class StringComparer : IComparer<String>
-        {
-            public int Compare(String str1, String str2)
-            {
-                if (str1 == str2)
-                    return 0;
-
-                var length = str1.Length < str2.Length ? str1.Length : str2.Length;
-
-                for (int i = 0; i < length; ++i)
-                    if (str1[i] != str2[i])
-                        return (int)(str1[i] - str2[i]);
-
-                return (str1.Length < str2.Length) ? -1 : 1;
-            }
         }
 
         #endregion

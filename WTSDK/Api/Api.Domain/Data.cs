@@ -285,6 +285,49 @@ namespace WeTongji.Api.Domain
     public class ForStaff : WTNews { }
     #endregion
 
+    #region [Information]
+
+    public class Information : WTObject
+    {
+        public int Id { get; set; }
+
+        public String Title { get; set; }
+
+        public String Context { get; set; }
+
+        public String Source { get; set; }
+
+        public String Contact { get; set; }
+
+        public String Location { get; set; }
+
+        public Boolean HasTicket { get; set; }
+
+        public String TicketService { get; set; }
+
+        public int Read { get; set; }
+
+        public DateTime CreatedAt { get; set; }
+
+        public String Category { get; set; }
+
+        public int Favorite { get; set; }
+
+        public int Like { get; set; }
+
+        public Boolean CanLike { get; set; }
+
+        public Boolean CanFavorite { get; set; }
+
+        public String Organizer { get; set; }
+
+        public String OrganizerAvatar { get; set; }
+
+        public String[] Images { get; set; }
+    }
+
+    #endregion
+
     #region [Version]
     public class Version : WTObject
     {

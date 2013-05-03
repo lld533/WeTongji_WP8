@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using WeTongji.Api.Util;
 
 namespace WeTongji.Api.Request
 {
@@ -35,7 +36,7 @@ namespace WeTongji.Api.Request
         public override IDictionary<String, String> GetParameters()
         {
             base.dict["NO"] = NO;
-            base.dict["Password"] = Password;
+            base.dict["Password"] = Password.RSAEncrypt();
 
             return base.dict;
         }
