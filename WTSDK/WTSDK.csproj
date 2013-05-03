@@ -159,6 +159,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Api\Api.Response\User\UserProfileResponse.cs" />
+    <Compile Include="Api\Api.Util\InformationEnumerator.cs" />
     <Compile Include="Api\Api.Util\RSAEncryptHelper.cs" />
     <Compile Include="Api\WTDownloadImageClient.cs" />
     <Compile Include="Api\Api.Request\Person\PersonFavoriteRequest.cs" />
